@@ -1,0 +1,28 @@
+name: Build README
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v2
+        with:
+          # get full history or else it'll be overwritten
+          fetch-depth: 0
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Regenerate README
+        run: ./.github/workflows/readme.js
+      - name: Commit and push if README changed
+        run: |-
+          git config --global user.email "actions@users.noreply.github.com"
+          git config --global user.name "readmerobot"
+          git diff --quiet || git commit --all --amend --no-edit
+          git push --force

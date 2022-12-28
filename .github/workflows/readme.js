@@ -12,6 +12,7 @@ async function main() {
 
   const files = exec("git ls-files")
     .split("\n")
+    .filter((name) => name.endsWith(".md"))
     .filter((name) => name.includes("/"))
     .sort()
     .map((name) => name.split("/"));
@@ -23,6 +24,8 @@ async function main() {
   }
 
   let readme = await loadReadmeHeader("README.md");
+  readme += `\n${files.length} TILs so far:\n`;
+
   for (const [category, files] of tils.entries()) {
     readme += `\n## ${category}\n\n`;
 
@@ -34,7 +37,6 @@ async function main() {
   }
 
   await writeFile("README.md", readme);
-  exec("git add README.md");
 }
 
 async function loadReadmeHeader(filepath) {
