@@ -11,3 +11,7 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 ## entr
 
 - [Rerun a command when files change](/entr/rerun-a-command-when-files-change.md)
+
+## git
+
+- [List all files tracked by git](/git/list-all-files-tracked-by-git.md)
