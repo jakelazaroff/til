@@ -4,6 +4,8 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 
 ---
 
+4 TILs so far:
+
 ## docker
 
 - [Add root certificates to a Debian container](/docker/add-root-certificates-to-a-debian-container.md)
@@ -15,3 +17,4 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 ## git
 
 - [List all files tracked by git](/git/list-all-files-tracked-by-git.md)
+- [Run a command if there are unstaged changes](/git/run-a-command-if-there-are-unstaged-changes.md)
