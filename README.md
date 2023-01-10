@@ -4,7 +4,7 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 
 ---
 
-4 TILs so far:
+5 TILs so far:
 
 ## docker
 
@@ -18,3 +18,7 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 
 - [List all files tracked by git](/git/list-all-files-tracked-by-git.md)
 - [Run a command if there are unstaged changes](/git/run-a-command-if-there-are-unstaged-changes.md)
+
+## make
+
+- [List all commands in a Makefile](/make/list-all-commands-in-a-makefile.md)
