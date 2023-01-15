@@ -4,7 +4,7 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 
 ---
 
-8 TILs so far:
+9 TILs so far:
 
 ## docker
 
@@ -30,6 +30,7 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 ## threejs
 
 - [Pick objects with the mouse cursor](/threejs/pick-objects-with-the-mouse-cursor.md)
+- [Set default camera in React Three Fiber](/threejs/set-default-camera-in-react-three-fiber.md)
 
 ## typescript
 
