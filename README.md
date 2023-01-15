@@ -4,7 +4,7 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 
 ---
 
-7 TILs so far:
+8 TILs so far:
 
 ## docker
 
@@ -26,6 +26,10 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 ## make
 
 - [List all commands in a Makefile](/make/list-all-commands-in-a-makefile.md)
+
+## threejs
+
+- [Pick objects with the mouse cursor](/threejs/pick-objects-with-the-mouse-cursor.md)
 
 ## typescript
 
