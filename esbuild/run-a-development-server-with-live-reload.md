@@ -1,8 +1,8 @@
-# Running a development server with live reload
+# Run a development server with live reload
 
 [esbuild](https://github.com/evanw/esbuild) is a great batteries-included bundler for frontend web projects.
 
-This is a one line shell command that will run a development web server and reload the page every time a file changes (broken up into multiple lines here for readability). I tend to put it in the `scripts` object of a project's `package.json` file.
+This is a one line shell command that will run a development web server and reload the page every time a file changes (broken up into multiple lines here for readability). I tend to put it in the [`scripts` property](https://docs.npmjs.com/cli/v9/configuring-npm/package-json?v=true#scripts) of project's `package.json` file.
 
 ```sh
 esbuild src/index.html index.ts src/style.css \
@@ -26,7 +26,7 @@ Line by line, here's what the command does:
 
 - `esbuild src/index.html index.ts src/style.css` runs esbuild using the three files listed as entrypoints.
 - `--bundle` combines all the imports
-from the TypeScript entrypoint into a single `.js` file.
+  from the TypeScript entrypoint into a single `.js` file.
 - `--watch` runs another build whenever an entrypoint or any of its dependencies change.
 - `--outdir=build` places bundled and copied files into the `build` directory.
 - `--servedir=build` serves static content from the `build` directory if a request path doesn't match any generated files. This is how `index.html` gets served.
