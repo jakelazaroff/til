@@ -16,7 +16,7 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 
 ## esbuild
 
-- [Running a development server with live reload](/esbuild/running-a-development-server-with-live-reload.md)
+- [Run a development server with live reload](/esbuild/run-a-development-server-with-live-reload.md)
 
 ## git
 
