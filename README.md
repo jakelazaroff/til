@@ -4,7 +4,7 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 
 ---
 
-6 TILs so far:
+7 TILs so far:
 
 ## docker
 
@@ -13,6 +13,10 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 ## entr
 
 - [Rerun a command when files change](/entr/rerun-a-command-when-files-change.md)
+
+## esbuild
+
+- [Running a development server with live reload](/esbuild/running-a-development-server-with-live-reload.md)
 
 ## git
 
