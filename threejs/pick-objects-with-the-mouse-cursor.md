@@ -5,6 +5,8 @@ To make a 3D scene interactive, it's useful to know which objects the mouse curs
 This code snippet is mostly copied directly from the [three.js documentation for the Raycaster class](https://threejs.org/docs/index.html#api/en/core/Raycaster). It works with both [perspective cameras](https://threejs.org/docs/#api/en/cameras/PerspectiveCamera) and [orthographic cameras](https://threejs.org/docs/#api/en/cameras/OrthographicCamera).
 
 ```ts
+const raycaster = new THREE.Raycaster();
+
 renderer.domElement.addEventListener("pointerdown", (e) => {
   const pointer = new THREE.Vector2();
 
