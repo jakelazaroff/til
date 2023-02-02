@@ -4,7 +4,7 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 
 ---
 
-11 TILs so far:
+12 TILs so far:
 
 ## docker
 
@@ -30,6 +30,10 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 ## make
 
 - [List all commands in a Makefile](/make/list-all-commands-in-a-makefile.md)
+
+## nodejs
+
+- [Execute TypeScript files in Node.js](/nodejs/execute-typescript-files-in-nodejs.md)
 
 ## tailwind
 
