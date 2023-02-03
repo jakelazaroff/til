@@ -1,6 +1,6 @@
 # Execute TypeScript files in Node.js
 
-One annoying thing about using TypeScript with Node.js is that you mostly can't — you either need to transpile all your files before running node, or use a "wrapper" interpreter like [ts-node](https://www.npmjs.com/package/ts-node) or [tsx](https://www.npmjs.com/package/tsx). It looks like that's changing with [an experimental feature called loaders that lets you hook into the module loading process](https://nodejs.org/api/esm.html#loaders). Node.js still expects that you give it JavaScript, but the loaders let you convert files into JavaScript as they're imported, before Node.js gets its hands on them.
+One annoying thing about using TypeScript with Node.js is that you mostly can't — you either need to transpile all your files before running `node`, or use a "wrapper" interpreter like [ts-node](https://www.npmjs.com/package/ts-node) or [tsx](https://www.npmjs.com/package/tsx). It looks like that's changing with [an experimental feature called loaders that lets you hook into the module loading process](https://nodejs.org/api/esm.html#loaders). Node.js still expects that you give it JavaScript, but the loaders let you convert files into JavaScript as they're imported, before Node.js gets its hands on them.
 
 (Note that as of February 2023, the Node.js Loaders API is marked as unstable, meaning that this code may stop working if it changes).
 
@@ -85,7 +85,7 @@ Some notes on the module resolution:
 
 - If `context.parentURL` is undefined in `resolve`, it means the file was passed directly to `node` as a command line argument. If that's the case, assume it's a real file and skip any further custom resolution.
 - `resolve` only attempts to find files whose specifiers begin with `/`, `//`, `./`, `../` or `file:///`. More information about module resolution can be found in the [Node.js documentation on ECMAScript modules](https://nodejs.org/api/esm.html#terminology).
-- Technically ECMAScript modules require the import specifier include an extension (`import "./foo.js"` is valid; `import "./foo"` is not). In practice, most bundlers allow you to omit the extension. This `resolve` function should work whether or not the extension is present.
+- Technically, ECMAScript modules require the import specifier to include an extension (`import "./foo.js"` is valid; `import "./foo"` is not). In practice, most bundlers allow you to omit the extension. This `resolve` function should work whether or not the extension is present.
 
 If a faster transpiler such as [esbuild](https://esbuild.github.io) is already one of the project dependencies, it probably makes sense to use that instead of the default TypeScript one:
 
