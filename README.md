@@ -4,7 +4,7 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 
 ---
 
-12 TILs so far:
+13 TILs so far:
 
 ## docker
 
@@ -46,4 +46,5 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 
 ## typescript
 
+- [tsconfig flags to prevent common errors](/typescript/tsconfig-flags-to-prevent-common-errors.md)
 - [Types and variables can share names](/typescript/types-and-variables-can-share-names.md)
