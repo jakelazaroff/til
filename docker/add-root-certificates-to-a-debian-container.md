@@ -1,6 +1,6 @@
 # Add root certificates to a Debian container
 
-I supposed this is potentially a problem with many images, but it definitely is with Debian (at least, as of December 2023): [Debian Docker images don't install the package `ca-certificates` by default](https://github.com/debuerreotype/docker-debian-artifacts/issues/15), which means any network requests that use TLS will fail with an error that looks something like this:
+I supposed this is potentially a problem with many images, but it definitely is with Debian (at least, as of December 2022): [Debian Docker images don't install the package `ca-certificates` by default](https://github.com/debuerreotype/docker-debian-artifacts/issues/15), which means any network requests that use TLS will fail with an error that looks something like this:
 
 ```
 x509: certificate signed by unknown authority
