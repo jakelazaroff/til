@@ -6,6 +6,7 @@ Even thought it’s ostensibly just a compiler, TypeScript also includes a bunch
 {
   "strict": true,
   "noFallthroughCasesInSwitch": true,
+  "noImplicitOverride": true,
   "noImplicitReturns": true,
   "noUncheckedIndexedAccess": true,
   "noUnusedLocals": true,
@@ -27,6 +28,7 @@ Here’s a short explanation of what each flag does
   - `strictPropertyInitialization` raises an error when a class property that isn’t optional is not set by default or in the constructor.
   - `useUnknownInCatchVariables` uses `unknown` rather than `any` as the type of the exception in a catch clause.
 - [`noFallthroughCasesInSwitch`](https://www.typescriptlang.org/tsconfig#noFallthroughCasesInSwitch) forces non-empty cases in switch statements to end with a `break` or `return`.
+- [`noImplicitOverride`](https://www.typescriptlang.org/tsconfig#noImplicitOverride) raises an error if a subclass overrides a method in a superclass without being annotated with `override`.
 - [`noImplicitReturns`](https://www.typescriptlang.org/tsconfig#noImplicitReturns) raises an error if only some code paths in a function return a value.
 - [`noUncheckedIndexAccess`](https://www.typescriptlang.org/tsconfig#noUncheckedIndexedAccess) uses a union with `undefined` when accessing values of objects with unknown keys, such as objects that act as indexes or arrays of unknown length. This can be somewhat annoying, since you now need to check for `undefined` every time, but it’s safer.
 - [`noUnusedLocals`](https://www.typescriptlang.org/tsconfig#noUnusedLocals) raises an error when a local variable is declared but never used; the error can be suppressed by prefixing the variable name with an underscore.
