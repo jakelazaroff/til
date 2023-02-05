@@ -1,4 +1,4 @@
-# Style conditionally based on data and aria attributes
+# Style conditionally based on data and ARIA attributes
 
 The unstyled UI library [Radix](https://www.radix-ui.com) exposes its inner state using [`data-*` attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/data-*). When it comes to styling, it's better to make use of these attributes rather than rely on pseudo-classes like `:hover` (which isn't accessible by keyboard users) or conditionally applying classes based on props or state (which is error-prone).
 
@@ -27,9 +27,7 @@ For example, styling a [Radix dropdown menu trigger](https://www.radix-ui.com/do
 ```jsx
 function DropdownMenuTrigger({ text }) {
   return (
-    <DropdownMenu.Trigger
-      className="bg-blue aria-expanded:bg-green"
-    >
+    <DropdownMenu.Trigger className="bg-blue aria-expanded:bg-green">
       <span>{text}</span>
     </DropdownMenu.Trigger>
   );
