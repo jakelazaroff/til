@@ -1,6 +1,6 @@
 # Rotate a point around a circle
 
-Given a point `(x, y)` and an angle `θ` (theta) measured in radians, the coordinates of the point `(x', y')` found by rotating counterclockwise around the point around a circle centered on `(0, 0)` are:
+Given a point `(x, y)` and an angle `θ` (theta) measured in radians, the coordinates of the point `(x', y')` found by rotating the original point counterclockwise around a circle centered on `(0, 0)` are:
 
 ```
 x' = x * cos(θ) - y * sin(θ)
