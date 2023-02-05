@@ -4,7 +4,7 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 
 ---
 
-13 TILs so far:
+14 TILs so far:
 
 ## docker
 
@@ -30,6 +30,10 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 ## make
 
 - [List all commands in a Makefile](/make/list-all-commands-in-a-makefile.md)
+
+## math
+
+- [Rotate a point around a circle](/math/rotate-a-point-around-a-circle.md)
 
 ## nodejs
 
