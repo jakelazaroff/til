@@ -41,7 +41,7 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 
 ## tailwind
 
-- [Style conditionally based on data and aria attributes](/tailwind/style-conditionally-based-on-data-and-aria-attributes.md)
+- [Style conditionally based on data and ARIA attributes](/tailwind/style-conditionally-based-on-data-and-aria-attributes.md)
 
 ## threejs
 
