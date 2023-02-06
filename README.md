@@ -4,7 +4,11 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 
 ---
 
-14 TILs so far:
+15 TILs so far:
+
+## blender
+
+- [Export a Blender file to GLB from the command line](/blender/export-a-blender-file-to-glb-from-the-command-line.md)
 
 ## docker
 
