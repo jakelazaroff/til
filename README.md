@@ -4,7 +4,7 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 
 ---
 
-15 TILs so far:
+16 TILs so far:
 
 ## blender
 
@@ -33,6 +33,7 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 
 ## make
 
+- [Build all files with a given extension](/make/build-all-files-with-a-given-extension.md)
 - [List all commands in a Makefile](/make/list-all-commands-in-a-makefile.md)
 
 ## math
