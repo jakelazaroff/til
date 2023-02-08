@@ -4,7 +4,7 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 
 ---
 
-16 TILs so far:
+17 TILs so far:
 
 ## blender
 
@@ -43,6 +43,10 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 ## nodejs
 
 - [Execute TypeScript files in Node.js](/nodejs/execute-typescript-files-in-nodejs.md)
+
+## pnpm
+
+- [Patch a node_modules dependency](/pnpm/patch-a-node_modules-dependency.md)
 
 ## tailwind
 
