@@ -4,7 +4,7 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 
 ---
 
-17 TILs so far:
+18 TILs so far:
 
 ## blender
 
@@ -54,6 +54,7 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 
 ## threejs
 
+- [Display an object's bounding box](/threejs/display-an-objects-bounding-box.md)
 - [Pick objects with the mouse cursor](/threejs/pick-objects-with-the-mouse-cursor.md)
 - [Set default camera in React Three Fiber](/threejs/set-default-camera-in-react-three-fiber.md)
 
