@@ -4,7 +4,7 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 
 ---
 
-18 TILs so far:
+19 TILs so far:
 
 ## blender
 
@@ -38,6 +38,7 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 
 ## math
 
+- [Convert between 3D coordinate systems](/math/convert-between-3d-coordinate-systems.md)
 - [Rotate a point around a circle](/math/rotate-a-point-around-a-circle.md)
 
 ## nodejs
