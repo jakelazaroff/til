@@ -17,12 +17,6 @@ Wikipedia has [an article on the right-hand rule](https://en.wikipedia.org/wiki/
 
 Converting between these systems involves some combination of swapping the Y and Z axes and/or inverting the Z axis:
 
-- To switch from Y-up to Z-up (and vice versa), swap the Y and Z axes (this is the same as rotating a quarter turn about the X axis). `(0, 1, 2)` in Y-up is equal to `(0, 2, 1)` in Z-up. However, **keep in mind that this flips the handedness** — if the initial point `(0, 1, 2)` was in Y-up right handed coordinates, the new point `(0, 2, 1)` is now in Z-up left-handed coordinates (on the opposite side of the other two axes).
-  ```
-  'x = x
-  'y = z
-  'z = y
-  ```
 - To switch from right handed to left handed (and vice versa), invert the forward axis. `(0, 0, 1)` in Y-up right handed is equal to `(0, 0, -1)` in Y-up left handed; `(0, 1, 0)` in Z-up right handed is equal to `(0, -1, 0)` in Z-up left handed.
 
   **Y-up:**
@@ -41,7 +35,15 @@ Converting between these systems involves some combination of swapping the Y and
   'z = z
   ```
 
-- Therefore, to switch from Y-up to Z-up (and vice versa) without also changing the handedness, swap the Y and Z axes and then invert the new forward axis. `(0, 0, 1)` in Y-up is equal to `(0, -1, 0)` in Z-up with the same handedness; `(0, 1, 0)` in Z-up is equal to `(0, 0, -1)` in Y-up with the same handedness.
+- To switch from Y-up to Z-up (and vice versa) with the same handedness, swap the Y and Z axes (this is the same as rotating a quarter turn about the X axis). Note that this flips the forward axis — if you were standing at `(0, 0, 0)` looking at the initial point `(0, 1, 2)` in Y-up coordinates, the point `(0, 2, 1)` in Z-up coordinates without the would be behind you.
+
+  ```
+  'x = x
+  'y = z
+  'z = y
+  ```
+
+- Therefore, to switch from Y-up to Z-up (and vice versa) without also flipping the forward axis, you need to also flip the handedness — swap the Y and Z axes and then invert the new forward axis. `(0, 0, 1)` in Y-up right handed is equal to `(0, 1, 0)` in Z-up left handed; `(0, 1, 0)` in Z-up right handed is equal to `(0, 0, 1)` in Y-up left handed.
 
   **Y-up to Z-up:**
 
