@@ -10,6 +10,8 @@ Here's roughly how it works:
 
 Wikipedia has [an article on the right-hand rule](https://en.wikipedia.org/wiki/Right-hand_rule), but I find it confusing. It's easiest for me to visualize by assigning an axis to each of my first three fingers: thumb is X, index finger is Y and middle finger is Z. I make an L with my index finger and thumb, and extend my middle finger perpendicular to my palm. Visualized this way, here are the four coordinate systems (remember, the X axis is always pointing right and the vertical axis is always pointing up):
 
+![A diagram of Y-up, Z-up, left handed and right handed coordinate systems](./3d-coordinate-systems.png)
+
 - Y-up, right handed: raise your right hand in front of your face, palm to you. Your thumb (X axis) should be extending right, your index finger (Y axis) should be pointing up and your middle finger (Z axis) should be pointing toward you.
 - Y-up, left handed: raise your left hand in front of your face, palm away from you. Your thumb (X axis) should still be extending right and your index finger (Y axis) should still be pointing up, but now your middle finger (Z axis) should be pointing away from you.
 - Z-up, right handed: extend your right arm in front of you such that your palm is facing upward. Your thumb (X axis) should be extending right, your middle finger (Z axis) should be pointing up and your index finger (Y axis) should be pointing away from you.
