@@ -1,6 +1,6 @@
 # Run a command if there are unstaged changes
 
-A quick one liner to run a command only if there are unstaged changes: the `--quiet` flag of [`git diff`](https://git-scm.com/docs/git-diff). The flag does two things:
+A quick one-liner to run a command only if there are unstaged changes: the `--quiet` flag of [`git diff`](https://git-scm.com/docs/git-diff). The flag does two things:
 
 1. disables all output of the command, and
 2. exits with 1 if there are differences, and 0 if there are no differences
