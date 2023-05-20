@@ -12,7 +12,7 @@ Even thought it’s ostensibly just a compiler, TypeScript also includes a bunch
   "noUnusedLocals": true,
   "noUnusedParameters": true,
   "forceConsistentCasingInFileNames": true,
-  "importsNotUsedAsValues": "error"
+  "verbatimModuleSyntax": true
 }
 ```
 
@@ -34,4 +34,4 @@ Here’s a short explanation of what each flag does
 - [`noUnusedLocals`](https://www.typescriptlang.org/tsconfig#noUnusedLocals) raises an error when a local variable is declared but never used; the error can be suppressed by prefixing the variable name with an underscore.
 - [`noUnusedParameters`](https://www.typescriptlang.org/tsconfig#noUnusedParameters) raises an error when a function parameter is declared but never used; the error can be suppressed by prefixing the variable name with an underscore.
 - [`forceConsistentCasingInFileNames`](https://www.typescriptlang.org/tsconfig#forceConsistentCasingInFileNames) raises an error if the casing of an import specifier (`”foo.js”`) differs from the file on disk (`Foo.js`).
-- [`importsNotUsedAsValues`](https://www.typescriptlang.org/tsconfig#importsNotUsedAsValues) ensures that type-only imports are explicitly annotated as such (since they’re erased at runtime, they won’t behave the same as value imports if the module causes side effects).
+- [`verbatimModuleSyntax`](https://www.typescriptlang.org/tsconfig#verbatimModuleSyntax) ensures that type-only imports are explicitly annotated as such (since they’re erased at runtime, they won’t behave the same as value imports if the module causes side effects). Replaces [`importsNotUsedAsValues`](https://www.typescriptlang.org/tsconfig#importsNotUsedAsValues).
