@@ -4,7 +4,7 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 
 ---
 
-22 TILs so far:
+23 TILs so far:
 
 ## blender
 
@@ -51,6 +51,10 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 ## pnpm
 
 - [Patch a node_modules dependency](/pnpm/patch-a-node_modules-dependency.md)
+
+## poetry
+
+- [Create `.venv` folders within projects](/poetry/Create-venv-folders-within-projects.md)
 
 ## tailwind
 
