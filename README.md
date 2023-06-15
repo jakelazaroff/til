@@ -46,7 +46,7 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 ## nodejs
 
 - [Execute TypeScript files in Node.js](/nodejs/execute-typescript-files-in-nodejs.md)
-- [Get `\_\_dirname` in ESM](/nodejs/get-dirname-in-esm.md)
+- [Get `__dirname` in ESM](/nodejs/get-dirname-in-esm.md)
 
 ## pnpm
 
