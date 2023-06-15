@@ -46,11 +46,11 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 ## nodejs
 
 - [Execute TypeScript files in Node.js](/nodejs/execute-typescript-files-in-nodejs.md)
-- [Get \_\_dirname in ESM](/nodejs/get-dirname-in-esm.md)
+- [Get `\_\_dirname` in ESM](/nodejs/get-dirname-in-esm.md)
 
 ## pnpm
 
-- [Patch a node_modules dependency](/pnpm/patch-a-node_modules-dependency.md)
+- [Patch a `node_modules` dependency](/pnpm/patch-a-node_modules-dependency.md)
 
 ## poetry
 
