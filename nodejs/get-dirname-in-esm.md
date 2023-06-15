@@ -1,4 +1,4 @@
-# Get \_\_dirname in ESM
+# Get `\_\_dirname` in ESM
 
 When using ES modules with Node.js, `__dirname` (the path to the file's directory) isn't available. Here's a [short and sweet replacement](https://stackoverflow.com/a/50052194):
 
