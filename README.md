@@ -4,11 +4,15 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 
 ---
 
-23 TILs so far:
+24 TILs so far:
 
 ## blender
 
 - [Export a Blender file to GLB from the command line](/blender/export-a-blender-file-to-glb-from-the-command-line.md)
+
+## css
+
+- [Set default styles for tags](/css/set-default-styles-for-tags.md)
 
 ## docker
 
