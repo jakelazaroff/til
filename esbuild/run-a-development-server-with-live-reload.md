@@ -5,7 +5,7 @@
 This is a one line shell command that will run a development web server and reload the page every time a file changes (broken up into multiple lines here for readability). I tend to put it in the [`scripts` property](https://docs.npmjs.com/cli/v9/configuring-npm/package-json?v=true#scripts) of project's `package.json` file.
 
 ```sh
-esbuild src/index.html index.ts src/style.css \
+esbuild src/index.html src/index.ts src/style.css \
   --bundle --watch \
   --outdir=build --servedir=build \
   --loader:.html=copy \
@@ -24,7 +24,7 @@ src/
 
 Line by line, here's what the command does:
 
-- `esbuild src/index.html index.ts src/style.css` runs esbuild using the three files listed as entrypoints.
+- `esbuild src/index.html src/index.ts src/style.css` runs esbuild using the three files listed as entrypoints.
 - `--bundle` combines all the imports
   from the TypeScript entrypoint into a single `.js` file.
 - `--watch` runs another build whenever an entrypoint or any of its dependencies change.
