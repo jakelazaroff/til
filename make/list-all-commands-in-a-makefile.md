@@ -43,9 +43,6 @@ Development
 
 Deployment
   build            Build for production
-
-Helpers
-  help             Display this help
 ```
 
 The snippet makes it so that `##` after a target becomes the help text for that target, and `##@` before a bunch of targets turns that into a group. (In this example, `##@ Helpers` would have gone before `help`.)
