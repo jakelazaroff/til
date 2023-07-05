@@ -4,7 +4,7 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 
 ---
 
-24 TILs so far:
+25 TILs so far:
 
 ## blender
 
@@ -59,6 +59,10 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 ## poetry
 
 - [Create `.venv` folders within projects](/poetry/Create-venv-folders-within-projects.md)
+
+## svg
+
+- [Create an SVG sprite sheet](/svg/create-an-svg-sprite-sheet.md)
 
 ## tailwind
 
