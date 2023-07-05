@@ -4,7 +4,7 @@
 
 Here's roughly how it works:
 
-- In all systems, the X axis is always horizontal and points to the right, meaning X coordinates get larger the further right they are. If you're standing at 0 on the X axis, coordinates on your left are negative and coordinates on your left are positive.
+- In all systems, the X axis is horizontal and points to the right, meaning X coordinates get larger the further right they are.
 - "Y-up" and "Z up" refers to vertical axis, which points up. If you're standing at 0 on the vertical axis, coordinates above you are negative and coordinates below you are positive; those coordinates will be labeled Y in a Y-up system and Z in a Z-up system.
 - "Right handed" and "left handed" determine which direction the Y and Z axes point with respect to each other. This is easiest to visualize by orienting yourself such that the X axis points right and the vertical axis points up. If the vertical axis is Y (Y-up), a right handed system means the Z axis is pointing toward you and a left handed system means the Z axis is pointing away from you. If the vertical axis is Z (Z-up), this is flipped: a right handed system means the Y axis is pointing away from you, and a left handed system means the Y axis is pointing toward you.
 
