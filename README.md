@@ -4,7 +4,7 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 
 ---
 
-25 TILs so far:
+26 TILs so far:
 
 ## blender
 
@@ -12,6 +12,7 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 
 ## css
 
+- [Dynamically change styles from HTML or JSX](/css/dynamically-change-styles-from-html-or-jsx.md)
 - [Set default styles for tags](/css/set-default-styles-for-tags.md)
 
 ## docker
