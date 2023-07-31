@@ -17,4 +17,4 @@ git diff --quiet && somecommand
 
 Note that this only works for unstaged changes in files that git already tracks; new files and changes staged with `git add` are not counted.
 
-Note too that because an exit code of 0 indicates success and anything else indicates failure, the boolean operators are flipped: `&&` only evaluates the right side if the left is `0`, and `||` only evaluates the right side if the left is not `0`.
+Note too that because an exit code of 0 indicates success and anything else indicates failure, the boolean operators' usual behavior is flipped: `&&` only evaluates the right side if the left is `0`, and `||` only evaluates the right side if the left is not `0`.
