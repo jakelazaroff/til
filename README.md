@@ -4,7 +4,12 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 
 ---
 
-26 TILs so far:
+28 TILs so far:
+
+## bash
+
+- [Control terminal appearance with `tput`](/bash/control-terminal-appearance-with-tput.md)
+- [Run commands when a shell script exits](/bash/run-commands-when-a-shell-script-exits.md)
 
 ## blender
 
