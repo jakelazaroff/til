@@ -4,7 +4,7 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 
 ---
 
-28 TILs so far:
+29 TILs so far:
 
 ## bash
 
@@ -37,6 +37,10 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 
 - [List all files tracked by git](/git/list-all-files-tracked-by-git.md)
 - [Run a command if there are unstaged changes](/git/run-a-command-if-there-are-unstaged-changes.md)
+
+## github
+
+- [Write an inline script in an Actions workflow](/github/write-an-inline-script-in-an-actions-workflow.md)
 
 ## gltf
 
