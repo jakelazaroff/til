@@ -4,7 +4,7 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 
 ---
 
-29 TILs so far:
+30 TILs so far:
 
 ## bash
 
@@ -69,6 +69,10 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 ## poetry
 
 - [Create `.venv` folders within projects](/poetry/Create-venv-folders-within-projects.md)
+
+## svelte
+
+- [Bail out of a reactive block](/svelte/bail-out-of-a-reactive-block.md)
 
 ## svg
 
