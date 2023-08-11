@@ -32,7 +32,7 @@ It doesn't seem to be documented anywhere, but Svelte lets you add an `if` state
 </script>
 ```
 
-If you have multiple conditions, or need to run some logic within the reactive block before bailing out, you can take advantage of the fact that `$:` uses [JS label syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/label), and use the `break` statement to bail out of that block:
+If you have multiple conditions, or need to run some logic within the reactive block before bailing out, you can take advantage of the fact that `$:` uses [JS label syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/label), and use the `break` statement to bail out of the block:
 
 ```html
 <script>
@@ -41,7 +41,7 @@ If you have multiple conditions, or need to run some logic within the reactive b
   $: {
     if (!shouldRun) break $;
 
-    let shouldContinueRunning = true;
+    let shouldContinueRunning;
     // logic to calculate `shouldContinueRunning` goes here
     if (!shouldContinueRunning) break $;
 
