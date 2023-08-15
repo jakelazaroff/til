@@ -4,7 +4,7 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 
 ---
 
-30 TILs so far:
+31 TILs so far:
 
 ## bash
 
@@ -19,6 +19,7 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 
 - [Dynamically change styles from HTML or JSX](/css/dynamically-change-styles-from-html-or-jsx.md)
 - [Set default styles for tags](/css/set-default-styles-for-tags.md)
+- [Use CSS variables in a `<dialog>` backdrop](/css/use-css-variables-in-a-dialog-backdrop.md)
 
 ## docker
 
