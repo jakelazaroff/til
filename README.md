@@ -4,7 +4,7 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 
 ---
 
-33 TILs so far:
+34 TILs so far:
 
 ## bash
 
@@ -50,6 +50,7 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 
 ## javascript
 
+- [Access CSS variables from JavaScript](/javascript/access-css-variables-from-javascript.md)
 - [Load a user-created JavaScript file in the browser](/javascript/load-a-user-created-javascript-file-in-the-browser.md)
 
 ## make
