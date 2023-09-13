@@ -4,7 +4,7 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 
 ---
 
-34 TILs so far:
+35 TILs so far:
 
 ## bash
 
@@ -98,4 +98,5 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 ## typescript
 
 - [tsconfig flags to prevent common errors](/typescript/tsconfig-flags-to-prevent-common-errors.md)
+- [Type concrete subclasses of an abstract class](/typescript/type-concrete-subclasses-of-an-abstract-class.md)
 - [Types and variables can share names](/typescript/types-and-variables-can-share-names.md)
