@@ -4,7 +4,7 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 
 ---
 
-35 TILs so far:
+36 TILs so far:
 
 ## bash
 
@@ -47,6 +47,10 @@ A collection of useful things I've learned. Inspired by [simonw/til](https://git
 ## gltf
 
 - [Extract data from a mesh primitive](/gltf/extract-data-from-a-mesh-primitive.md)
+
+## htmx
+
+- [Attach attributes to dynamically added elements](/htmx/attach-attributes-to-dynamically-added-elements.md)
 
 ## javascript
 
