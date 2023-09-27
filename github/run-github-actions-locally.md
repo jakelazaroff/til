@@ -1,4 +1,4 @@
-# Run Actions locally
+# Run GitHub Actions locally
 
 A common pain point with GitHub Actions is that the feedback loop is so long: make a change, push, wait for it to run, find an error, try to debug, repeat. Which is why I was so happy to discover [`act`](https://github.com/nektos/act), a tool for running GitHub Actions locally! The only prerequisite is Docker, which `act` uses to pull the appropriate images to run your actions.
 

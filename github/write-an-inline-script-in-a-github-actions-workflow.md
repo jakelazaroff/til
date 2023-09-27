@@ -1,4 +1,4 @@
-# Write an inline script in an Actions workflow
+# Write an inline script in a GitHub Actions workflow
 
 This is kind of meta because I'm mostly writing this TIL to test the workflow script of this repo, but anyway: the [`github-script`](https://github.com/actions/github-script) action allows you to write inline JavaScript within a GitHub Actions workflow. The string provided to the `script` property will be used as the body of an asynchronous function call.
 
