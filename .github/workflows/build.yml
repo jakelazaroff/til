@@ -21,6 +21,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0 # get full history or else it'll be overwritten
+
       - name: Regenerate README
         uses: actions/github-script@v6
         with:
@@ -72,9 +73,88 @@ jobs:
             // write readme
             await writeFile("README.md", readme);
 
-      - name: Commit and push if README changed
+      - name: Install NPM libraries
+        run: npm install marked he
+
+      - name: Generate RSS
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const { readFile, writeFile, stat } = require("node:fs/promises");
+            const { promisify } = require("node:util");
+            const run = promisify(require("node:child_process").exec);
+
+            const marked = require("marked").marked;
+            const he = require("he");
+
+            console.log("Building feed…");
+
+            // collect entries
+            const files = await glob.create("./**/*.md").then(globber => globber.glob());
+            const modified = files
+              .filter(name => !name.includes("/node_modules/")) // exclude node_modules
+              .filter(name => !name.endsWith("/README.md")) // exclude README.md
+              .map(name => name.split("/").slice(-2).join("/"))
+              .map(async file => [file, await run("git log --follow --format=%ad --date=unix " + file)]);
+
+            const entries = await Promise.all(modified);
+            const sorted = entries
+              .map(([name, created]) => [name, created.stdout.trim().split("\n").at(-1)])
+              .sort(([, a], [, b]) => b.localeCompare(a))
+              .slice(0, 10)
+              .map(async ([name, date]) => ({
+                name,
+                date: new Date(Number(date) * 1000),
+                content: await readFile(name).then(buf => buf.toString())
+              }));
+            const feed = await Promise.all(sorted);
+
+            const user = context.repo.owner;
+            const repo = context.repo.repo;
+            const branch = context.payload.repository.default_branch;
+
+            const link = `https://github.com/${user}/${repo}`;
+
+            const rss = [];
+            rss.push(`<?xml version="1.0" encoding="UTF-8"?>`);
+            rss.push(`<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">`);
+            rss.push(`<channel>`);
+            rss.push(`<title>${user} TIL</title>`);
+            rss.push(`<description>A collection of useful things I've learned.</description>`);
+            rss.push(`<link>${link}</link>`);
+
+            const dateOptions = { year: "numeric", month: "short", day: "numeric", hour: "2-digit", minute: "2-digit", second: "2-digit", timeZoneName: "short" };
+            for (const item of feed) {
+              rss.push(`<item>`);
+
+
+              const itemLink = `${link}/blob/${branch}/${item.name}`;
+              rss.push(`<guid>${itemLink}</guid>`);
+              rss.push(`<link>${itemLink}</link>`);
+
+              const [, title] = item.content.match(/^# (.+)$/m);
+              rss.push(`<title>TIL: ${he.escape(title)}</title>`);
+
+              const pubDate = new Intl.DateTimeFormat("en-US", dateOptions).format(item.date);
+              rss.push(`<pubDate>${item.date.toUTCString()}</pubDate>`);
+
+              const content = item.content.split("\n").slice(1).join("\n").trim();
+              const encoded = he.escape(marked(content));
+              rss.push(`<content:encoded>${encoded}</content:encoded>`);
+
+              rss.push(`</item>`);
+            }
+
+            rss.push(`</channel>`);
+            rss.push(`</rss>`);
+
+
+            // write feed
+            await writeFile("rss.xml", rss.join("\n"));
+
+      - name: Commit and push if README or RSS changed
         run: |-
           git config --global user.email "actions@users.noreply.github.com"
-          git config --global user.name "readme-robot"
-          git diff --quiet || git commit --all --message "Update README"
+          git config --global user.name "tilbot"
+          git diff --quiet || git commit --all --message "Update README.md or rss.xml"
           git push
