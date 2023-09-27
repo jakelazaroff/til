@@ -5,9 +5,9 @@
 <description>A collection of useful things I've learned.</description>
 <link>https://github.com/jakelazaroff/til</link>
 <item>
-<guid>https://github.com/jakelazaroff/til/blob/main/github/run-actions-locally.md</guid>
-<link>https://github.com/jakelazaroff/til/blob/main/github/run-actions-locally.md</link>
-<title>TIL: Run Actions locally</title>
+<guid>https://github.com/jakelazaroff/til/blob/main/github/run-github-actions-locally.md</guid>
+<link>https://github.com/jakelazaroff/til/blob/main/github/run-github-actions-locally.md</link>
+<title>TIL: Run GitHub Actions locally</title>
 <pubDate>Wed, 27 Sep 2023 04:21:36 GMT</pubDate>
 <content:encoded>&lt;p&gt;A common pain point with GitHub Actions is that the feedback loop is so long: make a change, push, wait for it to run, find an error, try to debug, repeat. Which is why I was so happy to discover &lt;a href=&quot;https://github.com/nektos/act&quot;&gt;&lt;code&gt;act&lt;/code&gt;&lt;/a&gt;, a tool for running GitHub Actions locally! The only prerequisite is Docker, which &lt;code&gt;act&lt;/code&gt; uses to pull the appropriate images to run your actions.&lt;/p&gt;
 &lt;p&gt;By default, &lt;code&gt;act&lt;/code&gt; will run the action for the &lt;code&gt;push&lt;/code&gt; event, although you can configure it to run specific events or jobs:&lt;/p&gt;
@@ -226,9 +226,9 @@ URL.revokeObjectURL(url);
 </content:encoded>
 </item>
 <item>
-<guid>https://github.com/jakelazaroff/til/blob/main/github/write-an-inline-script-in-an-actions-workflow.md</guid>
-<link>https://github.com/jakelazaroff/til/blob/main/github/write-an-inline-script-in-an-actions-workflow.md</link>
-<title>TIL: Write an inline script in an Actions workflow</title>
+<guid>https://github.com/jakelazaroff/til/blob/main/github/write-an-inline-script-in-a-github-actions-workflow.md</guid>
+<link>https://github.com/jakelazaroff/til/blob/main/github/write-an-inline-script-in-a-github-actions-workflow.md</link>
+<title>TIL: Write an inline script in a GitHub Actions workflow</title>
 <pubDate>Thu, 03 Aug 2023 15:50:30 GMT</pubDate>
 <content:encoded>&lt;p&gt;This is kind of meta because I&amp;#39;m mostly writing this TIL to test the workflow script of this repo, but anyway: the &lt;a href=&quot;https://github.com/actions/github-script&quot;&gt;&lt;code&gt;github-script&lt;/code&gt;&lt;/a&gt; action allows you to write inline JavaScript within a GitHub Actions workflow. The string provided to the &lt;code&gt;script&lt;/code&gt; property will be used as the body of an asynchronous function call.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-yaml&quot;&gt;- uses: actions/github-script@v6

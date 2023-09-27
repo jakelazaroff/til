@@ -44,8 +44,8 @@ Subscribe via [RSS](https://jakelazaroff.github.io/til/rss.xml)!
 
 ## github
 
-- [Run Actions locally](/github/run-actions-locally.md)
-- [Write an inline script in an Actions workflow](/github/write-an-inline-script-in-an-actions-workflow.md)
+- [Run GitHub Actions locally](/github/run-github-actions-locally.md)
+- [Write an inline script in a GitHub Actions workflow](/github/write-an-inline-script-in-a-github-actions-workflow.md)
 
 ## gltf
 
