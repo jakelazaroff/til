@@ -1,3 +1,11 @@
+# This script creates a nice README.md with an index of all TIL files.
+# TIL files are Markdown files named anything other than README.md.
+#
+# The readme is split into two sections: the "header" and the "index",
+# separated by three hyphens on their own line.
+# Anything above the three hyphens is the "header" and will be kept as is.
+# Anything below will be replaced by the "index".
+
 name: Build README
 
 on:
