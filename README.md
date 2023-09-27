@@ -2,6 +2,8 @@
 
 A collection of useful things I've learned. Inspired by [simonw/til](https://github.com/simonw/til).
 
+Subscribe via [RSS](https://raw.githubusercontent.com/jakelazaroff/til/main/rss.xml)!
+
 ---
 
 36 TILs so far:
