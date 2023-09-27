@@ -5,6 +5,28 @@
 <description>A collection of useful things I've learned.</description>
 <link>https://github.com/jakelazaroff/til</link>
 <item>
+<guid>https://github.com/jakelazaroff/til/blob/main/github/run-actions-locally.md</guid>
+<link>https://github.com/jakelazaroff/til/blob/main/github/run-actions-locally.md</link>
+<title>TIL: Run Actions locally</title>
+<pubDate>Wed, 27 Sep 2023 04:21:36 GMT</pubDate>
+<content:encoded>&lt;p&gt;A common pain point with GitHub Actions is that the feedback loop is so long: make a change, push, wait for it to run, find an error, try to debug, repeat. Which is why I was so happy to discover &lt;a href=&quot;https://github.com/nektos/act&quot;&gt;&lt;code&gt;act&lt;/code&gt;&lt;/a&gt;, a tool for running GitHub Actions locally! The only prerequisite is Docker, which &lt;code&gt;act&lt;/code&gt; uses to pull the appropriate images to run your actions.&lt;/p&gt;
+&lt;p&gt;By default, &lt;code&gt;act&lt;/code&gt; will run the action for the &lt;code&gt;push&lt;/code&gt; event, although you can configure it to run specific events or jobs:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;# run the &#x60;push&#x60; event:
+act
+
+# run a specific event:
+act pull_request
+
+# run a specific job:
+act -j test
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If your action needs a GitHub token (for example, if you&amp;#39;re checking out your code with &lt;a href=&quot;https://github.com/actions/checkout&quot;&gt;&lt;code&gt;actions/checkout&lt;/code&gt;&lt;/a&gt;) you can supply it with the &lt;code&gt;-s&lt;/code&gt; flag (for &amp;quot;secrets&amp;quot;) and the &lt;code&gt;GITHUB_TOKEN&lt;/code&gt; environment variable. This is easiest if you have the &lt;a href=&quot;https://cli.github.com/&quot;&gt;GitHub CLI&lt;/a&gt; installed:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;act -s GITHUB_TOKEN=&amp;quot;$(gh auth token)&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note that the &lt;a href=&quot;https://github.com/nektos/act#github_token&quot;&gt;official docs&lt;/a&gt; note that supplying your token in this way can leak it to the shell history.&lt;/p&gt;
+</content:encoded>
+</item>
+<item>
 <guid>https://github.com/jakelazaroff/til/blob/main/htmx/attach-attributes-to-dynamically-added-elements.md</guid>
 <link>https://github.com/jakelazaroff/til/blob/main/htmx/attach-attributes-to-dynamically-added-elements.md</link>
 <title>TIL: Attach attributes to dynamically added elements</title>
@@ -240,36 +262,6 @@ URL.revokeObjectURL(url);
 }
 
 trap cleanup INT TERM
-&lt;/code&gt;&lt;/pre&gt;
-</content:encoded>
-</item>
-<item>
-<guid>https://github.com/jakelazaroff/til/blob/main/bash/control-terminal-appearance-with-tput.md</guid>
-<link>https://github.com/jakelazaroff/til/blob/main/bash/control-terminal-appearance-with-tput.md</link>
-<title>TIL: Control terminal appearance with &#x60;tput&#x60;</title>
-<pubDate>Mon, 31 Jul 2023 22:03:15 GMT</pubDate>
-<content:encoded>&lt;p&gt;To control things like text color and cursor position in a terminal emulator, you need to use &lt;a href=&quot;https://en.wikipedia.org/wiki/ANSI_escape_code&quot;&gt;ANSI escape codes&lt;/a&gt;. These are mostly-inscrutable character sequences that can be printed to perform specific actions.&lt;/p&gt;
-&lt;p&gt;For example, here&amp;#39;s how to print some text in red followed by some text in black:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;echo &amp;quot;\033[0;31m&amp;quot; red text &amp;quot;\033[0;30m&amp;quot; black text
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The strings &lt;code&gt;\033[0;31m&lt;/code&gt; and &lt;code&gt;\033[0;30m&lt;/code&gt; are the escape code for red and black foregrounds, respectively.&lt;/p&gt;
-&lt;p&gt;One problem is that not all terminals support all codes. There&amp;#39;s a database called &lt;a href=&quot;https://en.wikipedia.org/wiki/Terminfo&quot;&gt;terminfo&lt;/a&gt; that describes the capabilities of each terminal, determined by an identifier (you can see which identifier your terminal is using by running &lt;code&gt;echo $TERM&lt;/code&gt;). Each terminal&amp;#39;s capabilities are identified by &amp;quot;capnames&amp;quot;.&lt;/p&gt;
-&lt;p&gt;Luckily, there&amp;#39;s a command to handle all this called &lt;a href=&quot;https://www.gnu.org/software/termutils/manual/termutils-2.0/html_chapter/tput_1.html&quot;&gt;&lt;code&gt;tput&lt;/code&gt;&lt;/a&gt;. Here&amp;#39;s how to use it to print the same text as the previous example:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;echo &amp;quot;$(tput setaf 1)&amp;quot; red text &amp;quot;$(tput setaf 0)&amp;quot; black text
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;code&gt;setaf&lt;/code&gt; is the capname for changing the foreground color, and 1 and 0 are the standard color codes for red and black. I&amp;#39;m not sure whether there&amp;#39;s a list mapping human-readable color names to numbers, but you can easily fix that with environment variables:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;RED=1
-BLACK=0
-echo &amp;quot;$(tput setaf $RED)&amp;quot; red text &amp;quot;$(tput setaf $BLACK)&amp;quot; black text
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;code&gt;tput&lt;/code&gt; can do more than set colors. For example, you might run &lt;code&gt;tput civis&lt;/code&gt; and &lt;code&gt;tput cnorm&lt;/code&gt; to hide the cursor during a progress animation, then show it again after:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;# hide the cursor
-tput civis
-
-# fancy progress animation code goes here
-
-# show the cursor
-tput cnorm
 &lt;/code&gt;&lt;/pre&gt;
 </content:encoded>
 </item>
