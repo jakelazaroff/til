@@ -6,7 +6,7 @@ Subscribe via [RSS](https://jakelazaroff.github.io/til/rss.xml)!
 
 ---
 
-37 TILs so far:
+38 TILs so far:
 
 ## bash
 
@@ -95,6 +95,7 @@ Subscribe via [RSS](https://jakelazaroff.github.io/til/rss.xml)!
 ## tailwind
 
 - [Style conditionally based on data and ARIA attributes](/tailwind/style-conditionally-based-on-data-and-aria-attributes.md)
+- [Style shadow trees from the light DOM](/tailwind/style-shadow-trees-from-the-light-dom.md)
 
 ## threejs
 

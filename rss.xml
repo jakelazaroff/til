@@ -5,6 +5,53 @@
 <description>A collection of useful things I've learned.</description>
 <link>https://github.com/jakelazaroff/til</link>
 <item>
+<guid>https://github.com/jakelazaroff/til/blob/main/tailwind/style-shadow-trees-from-the-light-dom.md</guid>
+<link>https://github.com/jakelazaroff/til/blob/main/tailwind/style-shadow-trees-from-the-light-dom.md</link>
+<title>TIL: Style shadow trees from the light DOM</title>
+<pubDate>Tue, 14 Nov 2023 22:29:00 GMT</pubDate>
+<content:encoded>&lt;p&gt;I&amp;#39;ve been really enjoying the web component library &lt;a href=&quot;https://shoelace.style&quot;&gt;Shoelace&lt;/a&gt; as a replacement for framework-specific UI libraries like &lt;a href=&quot;https://www.radix-ui.com&quot;&gt;Radix&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Shoelace uses the shadow DOM to encapsulate its markup from the light DOM (aka the rest of the page), which means that class selectors can&amp;#39;t reach it. This presents a problem for CSS utility frameworks like Tailwind, which use classes for everything.&lt;/p&gt;
+&lt;p&gt;Web components can use the &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/part&quot;&gt;&lt;code&gt;part&lt;/code&gt; attribute&lt;/a&gt; to let outside stylesheets select elements in shadow DOM. For example, here&amp;#39;s the shadow tree of &lt;a href=&quot;https://shoelace.style/components/switch&quot;&gt;Shoelace&amp;#39;s Switch component&lt;/a&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;label part=&amp;quot;base&amp;quot; class=&amp;quot; switch switch--medium &amp;quot;&amp;gt;
+  &amp;lt;input class=&amp;quot;switch__input&amp;quot; type=&amp;quot;checkbox&amp;quot; role=&amp;quot;switch&amp;quot; title name aria-checked=&amp;quot;false&amp;quot; /&amp;gt;
+
+  &amp;lt;span part=&amp;quot;control&amp;quot; class=&amp;quot;switch__control&amp;quot;&amp;gt;
+    &amp;lt;span part=&amp;quot;thumb&amp;quot; class=&amp;quot;switch__thumb&amp;quot;&amp;gt;&amp;lt;/span&amp;gt;
+  &amp;lt;/span&amp;gt;
+
+  &amp;lt;div part=&amp;quot;label&amp;quot; class=&amp;quot;switch__label&amp;quot;&amp;gt;
+    &amp;lt;slot&amp;gt;&amp;lt;/slot&amp;gt;
+  &amp;lt;/div&amp;gt;
+&amp;lt;/label&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;CSS in the light DOM can&amp;#39;t select these elements using classes like &lt;code&gt;switch__control&lt;/code&gt; — it needs to select these elements using the &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/::part&quot;&gt;&lt;code&gt;::part()&lt;/code&gt; pseudo-element&lt;/a&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-css&quot;&gt;sl-switch::part(control) {
+  background-color: red;
+}
+
+sl-switch::part(thumb) {
+  background-color: white;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Although Tailwind can&amp;#39;t target these parts out of the box, you can write a plugin to do it using &lt;a href=&quot;https://tailwindcss.com/docs/plugins#dynamic-variants&quot;&gt;dynamic variants&lt;/a&gt; (Tailwind classes that accept arbitrary values):&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;const plugin = require(&amp;quot;tailwindcss/plugin&amp;quot;);
+
+module.exports = {
+  plugins: [
+    plugin(function ({ matchVariant }) {
+      matchVariant(&amp;quot;part&amp;quot;, value =&amp;gt; &#x60;&amp;amp;::part(${value})&#x60;);
+    })
+  ]
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This adds a &lt;code&gt;part&lt;/code&gt; modifier that you can use like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;sl-switch class=&amp;quot;part-[control]:bg-red-500 part-[thumb]:bg-white part-[thumb]:rounded&amp;quot;&amp;gt;
+  label
+&amp;lt;/sl-switch&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</content:encoded>
+</item>
+<item>
 <guid>https://github.com/jakelazaroff/til/blob/main/github/run-github-actions-locally.md</guid>
 <link>https://github.com/jakelazaroff/til/blob/main/github/run-github-actions-locally.md</link>
 <title>TIL: Run GitHub Actions locally</title>
@@ -246,23 +293,6 @@ URL.revokeObjectURL(url);
 &lt;li&gt;Find files with glob patterns via &lt;a href=&quot;https://github.com/actions/toolkit/tree/main/packages/glob&quot;&gt;&lt;code&gt;@actions/glob&lt;/code&gt;&lt;/a&gt; (passed to your script as &lt;code&gt;glob&lt;/code&gt;)&lt;/li&gt;
 &lt;li&gt;Make GitHub API calls via a pre-authenticated &lt;a href=&quot;https://octokit.github.io/rest.js&quot;&gt;&lt;code&gt;octokit/rest.js&lt;/code&gt;&lt;/a&gt; (passed to your script as &lt;code&gt;github&lt;/code&gt;)&lt;/li&gt;
 &lt;/ul&gt;
-</content:encoded>
-</item>
-<item>
-<guid>https://github.com/jakelazaroff/til/blob/main/bash/run-commands-when-a-shell-script-exits.md</guid>
-<link>https://github.com/jakelazaroff/til/blob/main/bash/run-commands-when-a-shell-script-exits.md</link>
-<title>TIL: Run commands when a shell script exits</title>
-<pubDate>Mon, 31 Jul 2023 22:03:25 GMT</pubDate>
-<content:encoded>&lt;p&gt;Sometimes it&amp;#39;s useful to run commands when a shell script exits. For example, we might want to hide the cursor while playing a progress animation, and show it again when finished. But what if the user hits &lt;code&gt;ctrl-c&lt;/code&gt; to exit the application? If we don&amp;#39;t explicitly re-enable the cursor, it&amp;#39;ll remain hidden even after the script has exited.&lt;/p&gt;
-&lt;p&gt;A bit of searching turned up the &lt;a href=&quot;https://man7.org/linux/man-pages/man1/trap.1p.html&quot;&gt;&lt;code&gt;trap&lt;/code&gt;&lt;/a&gt; command, which runs another command when the program receives a signal from the operating system.&lt;/p&gt;
-&lt;p&gt;The syntax is &lt;code&gt;trap [action condition...]&lt;/code&gt;. Here&amp;#39;s an example of running some cleanup code when the program receives &lt;code&gt;SIGINT&lt;/code&gt; (which is triggered by &lt;code&gt;ctrl-c&lt;/code&gt;) or &lt;code&gt;SIGTERM&lt;/code&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;cleanup () {
-    # commands go here
-    exit
-}
-
-trap cleanup INT TERM
-&lt;/code&gt;&lt;/pre&gt;
 </content:encoded>
 </item>
 </channel>
