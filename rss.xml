@@ -7,7 +7,7 @@
 <item>
 <guid>https://github.com/jakelazaroff/til/blob/main/tailwind/style-shadow-trees-from-the-light-dom.md</guid>
 <link>https://github.com/jakelazaroff/til/blob/main/tailwind/style-shadow-trees-from-the-light-dom.md</link>
-<title>TIL: Style shadow trees from the light DOM</title>
+<title>TIL (tailwind): Style shadow trees from the light DOM</title>
 <pubDate>Tue, 14 Nov 2023 22:29:00 GMT</pubDate>
 <content:encoded>&lt;p&gt;I&amp;#39;ve been really enjoying the web component library &lt;a href=&quot;https://shoelace.style&quot;&gt;Shoelace&lt;/a&gt; as a replacement for framework-specific UI libraries like &lt;a href=&quot;https://www.radix-ui.com&quot;&gt;Radix&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Shoelace uses the shadow DOM to encapsulate its markup from the light DOM (aka the rest of the page), which means that class selectors can&amp;#39;t reach it. This presents a problem for CSS utility frameworks like Tailwind, which use classes for everything.&lt;/p&gt;
@@ -54,7 +54,7 @@ module.exports = {
 <item>
 <guid>https://github.com/jakelazaroff/til/blob/main/github/run-github-actions-locally.md</guid>
 <link>https://github.com/jakelazaroff/til/blob/main/github/run-github-actions-locally.md</link>
-<title>TIL: Run GitHub Actions locally</title>
+<title>TIL (github): Run GitHub Actions locally</title>
 <pubDate>Wed, 27 Sep 2023 04:21:36 GMT</pubDate>
 <content:encoded>&lt;p&gt;A common pain point with GitHub Actions is that the feedback loop is so long: make a change, push, wait for it to run, find an error, try to debug, repeat. Which is why I was so happy to discover &lt;a href=&quot;https://github.com/nektos/act&quot;&gt;&lt;code&gt;act&lt;/code&gt;&lt;/a&gt;, a tool for running GitHub Actions locally! The only prerequisite is Docker, which &lt;code&gt;act&lt;/code&gt; uses to pull the appropriate images to run your actions.&lt;/p&gt;
 &lt;p&gt;By default, &lt;code&gt;act&lt;/code&gt; will run the action for the &lt;code&gt;push&lt;/code&gt; event, although you can configure it to run specific events or jobs:&lt;/p&gt;
@@ -76,7 +76,7 @@ act -j test
 <item>
 <guid>https://github.com/jakelazaroff/til/blob/main/htmx/attach-attributes-to-dynamically-added-elements.md</guid>
 <link>https://github.com/jakelazaroff/til/blob/main/htmx/attach-attributes-to-dynamically-added-elements.md</link>
-<title>TIL: Attach attributes to dynamically added elements</title>
+<title>TIL (htmx): Attach attributes to dynamically added elements</title>
 <pubDate>Mon, 25 Sep 2023 05:20:01 GMT</pubDate>
 <content:encoded>&lt;p&gt;It&amp;#39;s barely mentioned within the HTMX documentation, but by default HTMX attributes only work on elements that were in the DOM when HTMX was loaded, or that HTMX itself added to the DOM. This means that if you add an element by some other means — say, AlpineJS — HTMX won&amp;#39;t know about any attributes on it or its descendants.&lt;/p&gt;
 &lt;p&gt;In the below example with AlpineJS and HTMX, the toggle button can be clicked to show and hide the form — but the &lt;a href=&quot;https://htmx.org/attributes/hx-boost/&quot;&gt;&lt;code&gt;hx-boost&lt;/code&gt; attribute&lt;/a&gt; won&amp;#39;t be detected, which means that it will be a normal form submission:&lt;/p&gt;
@@ -111,7 +111,7 @@ act -j test
 <item>
 <guid>https://github.com/jakelazaroff/til/blob/main/typescript/type-concrete-subclasses-of-an-abstract-class.md</guid>
 <link>https://github.com/jakelazaroff/til/blob/main/typescript/type-concrete-subclasses-of-an-abstract-class.md</link>
-<title>TIL: Type concrete subclasses of an abstract class</title>
+<title>TIL (typescript): Type concrete subclasses of an abstract class</title>
 <pubDate>Wed, 13 Sep 2023 19:01:29 GMT</pubDate>
 <content:encoded>&lt;p&gt;Let&amp;#39;s say there&amp;#39;s an an inheritance hierarchy consisting of an abstract base class and two concrete subclasses:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-ts&quot;&gt;abstract class Base {
@@ -151,7 +151,7 @@ class B extends Base {
 <item>
 <guid>https://github.com/jakelazaroff/til/blob/main/javascript/access-css-variables-from-javascript.md</guid>
 <link>https://github.com/jakelazaroff/til/blob/main/javascript/access-css-variables-from-javascript.md</link>
-<title>TIL: Access CSS variables from JavaScript</title>
+<title>TIL (javascript): Access CSS variables from JavaScript</title>
 <pubDate>Sat, 26 Aug 2023 17:33:14 GMT</pubDate>
 <content:encoded>&lt;p&gt;In building &lt;a href=&quot;https://fxplayground.pages.dev/&quot;&gt;fxplayground&lt;/a&gt;, I wanted to use colors from the site&amp;#39;s theme in a canvas visualization. The theme colors were all stored in CSS custom properties (variables), but the visualization drawing code was all JavaScript. I needed a way to read the CSS color variables from within JavaScript code.&lt;/p&gt;
 &lt;p&gt;Luckily, there&amp;#39;s a function called &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle&quot;&gt;&lt;code&gt;getComputedStyle&lt;/code&gt;&lt;/a&gt; that can help with that:&lt;/p&gt;
@@ -163,7 +163,7 @@ class B extends Base {
 <item>
 <guid>https://github.com/jakelazaroff/til/blob/main/javascript/load-a-user-created-javascript-file-in-the-browser.md</guid>
 <link>https://github.com/jakelazaroff/til/blob/main/javascript/load-a-user-created-javascript-file-in-the-browser.md</link>
-<title>TIL: Load a user-created JavaScript file in the browser</title>
+<title>TIL (javascript): Load a user-created JavaScript file in the browser</title>
 <pubDate>Mon, 21 Aug 2023 18:55:09 GMT</pubDate>
 <content:encoded>&lt;p&gt;I ran into this when building a &lt;a href=&quot;https://jakelazaroff.com/words/building-a-live-coding-audio-playground/&quot;&gt;live coding audio playground&lt;/a&gt;, and presumably it&amp;#39;s useful for other similar apps. The issue is that APIs like &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/AudioWorklet&quot;&gt;&lt;code&gt;AudioWorklet&lt;/code&gt;&lt;/a&gt; expect to be given a separate JavaScript file to run as a worker or worklet, but for apps in which the user writes code themselves there&amp;#39;s no easy way to serve that file (without running a webserver).&lt;/p&gt;
 &lt;p&gt;The trick is to use a combination of a &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/File&quot;&gt;&lt;code&gt;File&lt;/code&gt;&lt;/a&gt; (which represents raw data, plus some file-specific things like a name) and &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/URL/createObjectURL_static&quot;&gt;&lt;code&gt;URL.createObjectURL&lt;/code&gt;&lt;/a&gt;, which lets you create &amp;quot;stub&amp;quot; URLs for &lt;code&gt;File&lt;/code&gt; objects.&lt;/p&gt;
@@ -189,7 +189,7 @@ URL.revokeObjectURL(url);
 <item>
 <guid>https://github.com/jakelazaroff/til/blob/main/css/make-a-css-variable-color-translucent.md</guid>
 <link>https://github.com/jakelazaroff/til/blob/main/css/make-a-css-variable-color-translucent.md</link>
-<title>TIL: Make a CSS variable color translucent</title>
+<title>TIL (css): Make a CSS variable color translucent</title>
 <pubDate>Tue, 15 Aug 2023 19:13:11 GMT</pubDate>
 <content:encoded>&lt;p&gt;Given a color stored in a CSS variable, how do you change the opacity? This &lt;a href=&quot;https://stackoverflow.com/a/71098929&quot;&gt;Stack Overflow answer&lt;/a&gt; has a couple good suggestions.&lt;/p&gt;
 &lt;p&gt;First is &lt;code&gt;color-mix&lt;/code&gt;, which is &lt;a href=&quot;https://caniuse.com/?search=color-mix&quot;&gt;widely supported in browsers today&lt;/a&gt;. It lets you mix two colors in a given color space. The trick is to mix some percentage of the color variable with the color &lt;code&gt;transparent&lt;/code&gt;:&lt;/p&gt;
@@ -207,7 +207,7 @@ URL.revokeObjectURL(url);
 <item>
 <guid>https://github.com/jakelazaroff/til/blob/main/css/use-css-variables-in-a-dialog-backdrop.md</guid>
 <link>https://github.com/jakelazaroff/til/blob/main/css/use-css-variables-in-a-dialog-backdrop.md</link>
-<title>TIL: Use CSS variables in a &#x60;&lt;dialog&gt;&#x60; backdrop</title>
+<title>TIL (css): Use CSS variables in a &#x60;&lt;dialog&gt;&#x60; backdrop</title>
 <pubDate>Tue, 15 Aug 2023 18:43:02 GMT</pubDate>
 <content:encoded>&lt;p&gt;I was building a native modal using the new(ish) &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog&quot;&gt;&lt;code&gt;&amp;lt;dialog&amp;gt;&lt;/code&gt; element&lt;/a&gt; when I realized that I couldn&amp;#39;t use CSS variables (officially called &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties&quot;&gt;custom properties&lt;/a&gt;) in the &lt;code&gt;::backdrop&lt;/code&gt; pseudo-element.&lt;/p&gt;
 &lt;p&gt;I found &lt;a href=&quot;https://stackoverflow.com/questions/58818299/css-variables-not-working-in-dialogbackdrop&quot;&gt;this Stack Overflow post&lt;/a&gt; that links to a (now-removed) paragraph in the spec for the &lt;code&gt;::backdrop&lt;/code&gt;:&lt;/p&gt;
@@ -228,7 +228,7 @@ URL.revokeObjectURL(url);
 <item>
 <guid>https://github.com/jakelazaroff/til/blob/main/svelte/bail-out-of-a-reactive-block.md</guid>
 <link>https://github.com/jakelazaroff/til/blob/main/svelte/bail-out-of-a-reactive-block.md</link>
-<title>TIL: Bail out of a reactive block</title>
+<title>TIL (svelte): Bail out of a reactive block</title>
 <pubDate>Fri, 11 Aug 2023 06:11:00 GMT</pubDate>
 <content:encoded>&lt;p&gt;In Svelte, you can &lt;a href=&quot;https://svelte.dev/docs/svelte-components#script-3-$-marks-a-statement-as-reactive&quot;&gt;prefix a block with &lt;code&gt;$:&lt;/code&gt; to mark it as reactive&lt;/a&gt;, which means it will re-run whenever any outside variables referenced within the block change. It performs the same function as &lt;a href=&quot;https://react.dev/reference/react/useEffect&quot;&gt;&lt;code&gt;useEffect&lt;/code&gt; in React&lt;/a&gt; or &lt;a href=&quot;https://www.solidjs.com/tutorial/introduction_effects&quot;&gt;&lt;code&gt;createEffect&lt;/code&gt; in Solid&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;The difference is that with React and Solid, the &amp;quot;effect&amp;quot; is performed by a function, which means it&amp;#39;s possible to &amp;quot;bail out&amp;quot; by returning early. Here&amp;#39;s a contrived React example:&lt;/p&gt;
@@ -275,7 +275,7 @@ URL.revokeObjectURL(url);
 <item>
 <guid>https://github.com/jakelazaroff/til/blob/main/github/write-an-inline-script-in-a-github-actions-workflow.md</guid>
 <link>https://github.com/jakelazaroff/til/blob/main/github/write-an-inline-script-in-a-github-actions-workflow.md</link>
-<title>TIL: Write an inline script in a GitHub Actions workflow</title>
+<title>TIL (github): Write an inline script in a GitHub Actions workflow</title>
 <pubDate>Thu, 03 Aug 2023 15:50:30 GMT</pubDate>
 <content:encoded>&lt;p&gt;This is kind of meta because I&amp;#39;m mostly writing this TIL to test the workflow script of this repo, but anyway: the &lt;a href=&quot;https://github.com/actions/github-script&quot;&gt;&lt;code&gt;github-script&lt;/code&gt;&lt;/a&gt; action allows you to write inline JavaScript within a GitHub Actions workflow. The string provided to the &lt;code&gt;script&lt;/code&gt; property will be used as the body of an asynchronous function call.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-yaml&quot;&gt;- uses: actions/github-script@v6
