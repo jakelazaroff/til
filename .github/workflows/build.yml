@@ -127,13 +127,13 @@ jobs:
             for (const item of feed) {
               rss.push(`<item>`);
 
-
               const itemLink = `${link}/blob/${branch}/${item.name}`;
               rss.push(`<guid>${itemLink}</guid>`);
               rss.push(`<link>${itemLink}</link>`);
 
+              const category = item.name.split("/")[0];
               const [, title] = item.content.match(/^# (.+)$/m);
-              rss.push(`<title>TIL: ${he.escape(title)}</title>`);
+              rss.push(`<title>TIL (${category}): ${he.escape(title)}</title>`);
 
               const pubDate = new Intl.DateTimeFormat("en-US", dateOptions).format(item.date);
               rss.push(`<pubDate>${item.date.toUTCString()}</pubDate>`);
