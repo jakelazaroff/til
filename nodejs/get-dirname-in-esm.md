@@ -8,3 +8,5 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 ```
+
+**Update:** As of [Node 21.2.0](https://nodejs.org/en/blog/release/v21.2.0), `__filename` and `__dirname` are natively available as `import.meta.filename` and `import.meta.dirname`, respectively.
