@@ -5,6 +5,27 @@
 <description>A collection of useful things I've learned.</description>
 <link>https://github.com/jakelazaroff/til</link>
 <item>
+<guid>https://github.com/jakelazaroff/til/blob/main/typescript/assert-that-a-variable-is-not-null-or-undefined.md</guid>
+<link>https://github.com/jakelazaroff/til/blob/main/typescript/assert-that-a-variable-is-not-null-or-undefined.md</link>
+<title>TIL (typescript): Assert that a variable is not &#x60;null&#x60; or &#x60;undefined&#x60;</title>
+<pubDate>Wed, 06 Dec 2023 20:23:27 GMT</pubDate>
+<content:encoded>&lt;p&gt;TypeScript uses &lt;code&gt;!&lt;/code&gt; as a &lt;a href=&quot;https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#non-null-assertion-operator&quot;&gt;non-null assertion operator&lt;/a&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-ts&quot;&gt;const foo = document.querySelector(&amp;quot;#foo&amp;quot;); // Element | null;
+const bar = document.querySelector(&amp;quot;#bar&amp;quot;)!; // Element;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I avoid it because it&amp;#39;s the same as JavaScript&amp;#39;s unary not operator, which makes it difficult to grep. Instead, I generally prefer to assert types with &lt;code&gt;as TypeName&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-ts&quot;&gt;const foo = document.querySelector(&amp;quot;#foo&amp;quot;) as Element;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;That has a couple drawbacks. Other than being more verbose, it&amp;#39;s possible to cast the type to something incorrect:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-ts&quot;&gt;const foo = document.querySelector(&amp;quot;svg&amp;quot;) as HTMLElement;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;But! You can chain the &lt;code&gt;!&lt;/code&gt; non-null assertion operator as many times as you want:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-ts&quot;&gt;const foo = document.querySelector(&amp;quot;#foo&amp;quot;)!!!; // Element
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I prefer that to &lt;code&gt;as&lt;/code&gt; assertions. It&amp;#39;s greppable (since using three consecutive unary nots is unlikely), it&amp;#39;s less verbose, there&amp;#39;s no chance of accidentally changing the type and a bunch of repeated exclamation marks definitely calls out that something unusual is happening with that code.&lt;/p&gt;
+</content:encoded>
+</item>
+<item>
 <guid>https://github.com/jakelazaroff/til/blob/main/tailwind/style-shadow-trees-from-the-light-dom.md</guid>
 <link>https://github.com/jakelazaroff/til/blob/main/tailwind/style-shadow-trees-from-the-light-dom.md</link>
 <title>TIL (tailwind): Style shadow trees from the light DOM</title>
@@ -270,29 +291,6 @@ URL.revokeObjectURL(url);
   }
 &amp;lt;/script&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
-</content:encoded>
-</item>
-<item>
-<guid>https://github.com/jakelazaroff/til/blob/main/github/write-an-inline-script-in-a-github-actions-workflow.md</guid>
-<link>https://github.com/jakelazaroff/til/blob/main/github/write-an-inline-script-in-a-github-actions-workflow.md</link>
-<title>TIL (github): Write an inline script in a GitHub Actions workflow</title>
-<pubDate>Thu, 03 Aug 2023 15:50:30 GMT</pubDate>
-<content:encoded>&lt;p&gt;This is kind of meta because I&amp;#39;m mostly writing this TIL to test the workflow script of this repo, but anyway: the &lt;a href=&quot;https://github.com/actions/github-script&quot;&gt;&lt;code&gt;github-script&lt;/code&gt;&lt;/a&gt; action allows you to write inline JavaScript within a GitHub Actions workflow. The string provided to the &lt;code&gt;script&lt;/code&gt; property will be used as the body of an asynchronous function call.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-yaml&quot;&gt;- uses: actions/github-script@v6
-  id: script
-  with:
-    script: return &amp;quot;Hello!&amp;quot;
-    result-encoding: string
-- name: Get result
-  run: echo &amp;quot;${{steps.script.outputs.result}}&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;That example is from the official documentation; you can return an optionally JSON-encoded string and it&amp;#39;ll be available under the &lt;code&gt;result&lt;/code&gt; key of the step&amp;#39;s outputs.&lt;/p&gt;
-&lt;p&gt;Some other things you can do:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;require&lt;/code&gt; NPM packages&lt;/li&gt;
-&lt;li&gt;Find files with glob patterns via &lt;a href=&quot;https://github.com/actions/toolkit/tree/main/packages/glob&quot;&gt;&lt;code&gt;@actions/glob&lt;/code&gt;&lt;/a&gt; (passed to your script as &lt;code&gt;glob&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;Make GitHub API calls via a pre-authenticated &lt;a href=&quot;https://octokit.github.io/rest.js&quot;&gt;&lt;code&gt;octokit/rest.js&lt;/code&gt;&lt;/a&gt; (passed to your script as &lt;code&gt;github&lt;/code&gt;)&lt;/li&gt;
-&lt;/ul&gt;
 </content:encoded>
 </item>
 </channel>

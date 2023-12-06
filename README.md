@@ -6,7 +6,7 @@ Subscribe via [RSS](https://jakelazaroff.github.io/til/rss.xml)!
 
 ---
 
-38 TILs so far:
+39 TILs so far:
 
 ## bash
 
@@ -105,6 +105,7 @@ Subscribe via [RSS](https://jakelazaroff.github.io/til/rss.xml)!
 
 ## typescript
 
+- [Assert that a variable is not `null` or `undefined`](/typescript/assert-that-a-variable-is-not-null-or-undefined.md)
 - [tsconfig flags to prevent common errors](/typescript/tsconfig-flags-to-prevent-common-errors.md)
 - [Type concrete subclasses of an abstract class](/typescript/type-concrete-subclasses-of-an-abstract-class.md)
 - [Types and variables can share names](/typescript/types-and-variables-can-share-names.md)
