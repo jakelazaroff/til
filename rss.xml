@@ -5,6 +5,23 @@
 <description>A collection of useful things I've learned.</description>
 <link>https://github.com/jakelazaroff/til</link>
 <item>
+<guid>https://github.com/jakelazaroff/til/blob/main/htmx/load-modal-content-when-shoelace-dialog-opens.md</guid>
+<link>https://github.com/jakelazaroff/til/blob/main/htmx/load-modal-content-when-shoelace-dialog-opens.md</link>
+<title>TIL (htmx): Load modal content when a Shoelace dialog opens</title>
+<pubDate>Fri, 08 Dec 2023 05:45:20 GMT</pubDate>
+<content:encoded>&lt;p&gt;This is pretty idiosyncratic to &lt;a href=&quot;https://htmx.org&quot;&gt;HTMX&lt;/a&gt; and &lt;a href=&quot;https://shoelace.style&quot;&gt;Shoelace&lt;/a&gt;, but it&amp;#39;s a neat pattern so I&amp;#39;m documenting it here.&lt;/p&gt;
+&lt;p&gt;HTMX lets you make an HTTP request in response to an event and insert it elsewhere into the DOM. Shoelace&amp;#39;s &lt;a href=&quot;https://shoelace.style/components/dialog&quot;&gt;Dialog&lt;/a&gt; component fires an &lt;code&gt;sl-show&lt;/code&gt; event when the dialog opens. These can be combined to automatically load modal content when the modal opens:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;sl-dialog hx-get=&amp;quot;/modal/content/&amp;quot; hx-trigger=&amp;quot;sl-show&amp;quot;&amp;gt;&amp;lt;/sl-dialog&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If parts of the modal don&amp;#39;t need to be loaded via HTTP — for example, the title — &lt;code&gt;hx-target&lt;/code&gt; can be used to replace only the modal content:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;sl-dialog hx-get=&amp;quot;/modal/content/&amp;quot; hx-trigger=&amp;quot;sl-show&amp;quot; hx-target=&amp;quot;find .content&amp;quot;&amp;gt;
+  &amp;lt;span slot=&amp;quot;label&amp;quot;&amp;gt;My Modal&amp;lt;/span&amp;gt;
+  &amp;lt;div class=&amp;quot;content&amp;quot;&amp;gt;
+&amp;lt;/sl-dialog&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</content:encoded>
+</item>
+<item>
 <guid>https://github.com/jakelazaroff/til/blob/main/typescript/assert-that-a-variable-is-not-null-or-undefined.md</guid>
 <link>https://github.com/jakelazaroff/til/blob/main/typescript/assert-that-a-variable-is-not-null-or-undefined.md</link>
 <title>TIL (typescript): Assert that a variable is not &#x60;null&#x60; or &#x60;undefined&#x60;</title>
@@ -243,53 +260,6 @@ URL.revokeObjectURL(url);
   --some-other-variable-name: #f00;
   /* etc etc */
 }
-&lt;/code&gt;&lt;/pre&gt;
-</content:encoded>
-</item>
-<item>
-<guid>https://github.com/jakelazaroff/til/blob/main/svelte/bail-out-of-a-reactive-block.md</guid>
-<link>https://github.com/jakelazaroff/til/blob/main/svelte/bail-out-of-a-reactive-block.md</link>
-<title>TIL (svelte): Bail out of a reactive block</title>
-<pubDate>Fri, 11 Aug 2023 06:11:00 GMT</pubDate>
-<content:encoded>&lt;p&gt;In Svelte, you can &lt;a href=&quot;https://svelte.dev/docs/svelte-components#script-3-$-marks-a-statement-as-reactive&quot;&gt;prefix a block with &lt;code&gt;$:&lt;/code&gt; to mark it as reactive&lt;/a&gt;, which means it will re-run whenever any outside variables referenced within the block change. It performs the same function as &lt;a href=&quot;https://react.dev/reference/react/useEffect&quot;&gt;&lt;code&gt;useEffect&lt;/code&gt; in React&lt;/a&gt; or &lt;a href=&quot;https://www.solidjs.com/tutorial/introduction_effects&quot;&gt;&lt;code&gt;createEffect&lt;/code&gt; in Solid&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;The difference is that with React and Solid, the &amp;quot;effect&amp;quot; is performed by a function, which means it&amp;#39;s possible to &amp;quot;bail out&amp;quot; by returning early. Here&amp;#39;s a contrived React example:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-jsx&quot;&gt;function ExampleComponent({ shouldRun }) {
-  useEffect(() =&amp;gt; {
-    if (!shouldRun) return;
-
-    // effect code goes here
-  }, [shouldRun]);
-
-  // ...
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;With Svelte, however, reactive blocks execute at the top level of the module, &lt;a href=&quot;http://es5.github.io/#x12.9&quot;&gt;where &lt;code&gt;return&lt;/code&gt; statements aren&amp;#39;t allowed&lt;/a&gt;:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;An ECMAScript program is considered syntactically incorrect if it contains a &lt;code&gt;return&lt;/code&gt; statement that is not within a &lt;code&gt;FunctionBody&lt;/code&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;It doesn&amp;#39;t seem to be documented anywhere, but Svelte lets you add an &lt;code&gt;if&lt;/code&gt; statement before the reactive block in order to execute it conditionally. Variables referenced within the condition will also be tracked reactively, even if they&amp;#39;re not referenced within the block itself.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;script&amp;gt;
-  export let shouldRun;
-
-  $: if (shouldRun) {
-    // effect code goes here
-  }
-&amp;lt;/script&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;If you have multiple conditions, or need to run some logic within the reactive block before bailing out, you can take advantage of the fact that &lt;code&gt;$:&lt;/code&gt; uses &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/label&quot;&gt;JS label syntax&lt;/a&gt;, and use the &lt;code&gt;break&lt;/code&gt; statement to bail out of the block:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;script&amp;gt;
-  export let shouldRun;
-
-  $: {
-    if (!shouldRun) break $;
-
-    let shouldContinueRunning;
-    // logic to calculate &#x60;shouldContinueRunning&#x60; goes here
-    if (!shouldContinueRunning) break $;
-
-    // effect code goes here
-  }
-&amp;lt;/script&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 </content:encoded>
 </item>

@@ -6,7 +6,7 @@ Subscribe via [RSS](https://jakelazaroff.github.io/til/rss.xml)!
 
 ---
 
-39 TILs so far:
+40 TILs so far:
 
 ## bash
 
@@ -54,6 +54,7 @@ Subscribe via [RSS](https://jakelazaroff.github.io/til/rss.xml)!
 ## htmx
 
 - [Attach attributes to dynamically added elements](/htmx/attach-attributes-to-dynamically-added-elements.md)
+- [Load modal content when a Shoelace dialog opens](/htmx/load-modal-content-when-shoelace-dialog-opens.md)
 
 ## javascript
 
