@@ -6,7 +6,7 @@ Subscribe via [RSS](https://jakelazaroff.github.io/til/rss.xml)!
 
 ---
 
-40 TILs so far:
+41 TILs so far:
 
 ## bash
 
@@ -16,6 +16,10 @@ Subscribe via [RSS](https://jakelazaroff.github.io/til/rss.xml)!
 ## blender
 
 - [Export a Blender file to GLB from the command line](/blender/export-a-blender-file-to-glb-from-the-command-line.md)
+
+## c
+
+- [Prevent ClangFormat from breaking before curly braces](/c/prevent-clangformat-from-breaking-before-curly-braces.md)
 
 ## css
 

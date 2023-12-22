@@ -5,6 +5,33 @@
 <description>A collection of useful things I've learned.</description>
 <link>https://github.com/jakelazaroff/til</link>
 <item>
+<guid>https://github.com/jakelazaroff/til/blob/main/c/prevent-clangformat-from-breaking-before-curly-braces.md</guid>
+<link>https://github.com/jakelazaroff/til/blob/main/c/prevent-clangformat-from-breaking-before-curly-braces.md</link>
+<title>TIL (c): Prevent ClangFormat from breaking before curly braces</title>
+<pubDate>Fri, 22 Dec 2023 22:30:45 GMT</pubDate>
+<content:encoded>&lt;p&gt;For some unfathomable reason, C and C++ developers sometimes put line breaks before curly braces:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-c&quot;&gt;int main()
+{
+  for (int i = 0; i &amp;lt; 10; i++)
+  {
+    printf(&amp;quot;%d\n&amp;quot;, i);
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It&amp;#39;s also the default formatting style in the code formatter &lt;a href=&quot;https://clang.llvm.org/docs/ClangFormat.html&quot;&gt;ClangFormat&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Fortunately, it&amp;#39;s configurable by setting the &lt;a href=&quot;https://clang.llvm.org/docs/ClangFormatStyleOptions.html#breakbeforebraces&quot;&gt;&lt;code&gt;BreakBeforeBraces&lt;/code&gt; option&lt;/a&gt; to &lt;code&gt;Attach&lt;/code&gt; in your &lt;code&gt;.clang-format&lt;/code&gt; file:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;BreakBeforeBraces: Attach
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Much more readable:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-c&quot;&gt;int main() {
+  for (int i = 0; i &amp;lt; 10; i++) {
+    printf(&amp;quot;%d\n&amp;quot;, i);
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+</content:encoded>
+</item>
+<item>
 <guid>https://github.com/jakelazaroff/til/blob/main/htmx/load-modal-content-when-shoelace-dialog-opens.md</guid>
 <link>https://github.com/jakelazaroff/til/blob/main/htmx/load-modal-content-when-shoelace-dialog-opens.md</link>
 <title>TIL (htmx): Load modal content when a Shoelace dialog opens</title>
@@ -238,27 +265,6 @@ URL.revokeObjectURL(url);
 &lt;p&gt;Next is relative color syntax, which &lt;a href=&quot;https://caniuse.com/css-relative-colors&quot;&gt;as of August 2023 is only supported in Safari&lt;/a&gt;. The keyword &lt;code&gt;from&lt;/code&gt; lets you convert colors between formats; you can then fill in the missing alpha value when passing it to &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/color_value&quot;&gt;a color function&lt;/a&gt;:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-css&quot;&gt;.classname {
   color: rgb(from var(--some-color) / 50%);
-}
-&lt;/code&gt;&lt;/pre&gt;
-</content:encoded>
-</item>
-<item>
-<guid>https://github.com/jakelazaroff/til/blob/main/css/use-css-variables-in-a-dialog-backdrop.md</guid>
-<link>https://github.com/jakelazaroff/til/blob/main/css/use-css-variables-in-a-dialog-backdrop.md</link>
-<title>TIL (css): Use CSS variables in a &#x60;&lt;dialog&gt;&#x60; backdrop</title>
-<pubDate>Tue, 15 Aug 2023 18:43:02 GMT</pubDate>
-<content:encoded>&lt;p&gt;I was building a native modal using the new(ish) &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog&quot;&gt;&lt;code&gt;&amp;lt;dialog&amp;gt;&lt;/code&gt; element&lt;/a&gt; when I realized that I couldn&amp;#39;t use CSS variables (officially called &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties&quot;&gt;custom properties&lt;/a&gt;) in the &lt;code&gt;::backdrop&lt;/code&gt; pseudo-element.&lt;/p&gt;
-&lt;p&gt;I found &lt;a href=&quot;https://stackoverflow.com/questions/58818299/css-variables-not-working-in-dialogbackdrop&quot;&gt;this Stack Overflow post&lt;/a&gt; that links to a (now-removed) paragraph in the spec for the &lt;code&gt;::backdrop&lt;/code&gt;:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;It does not inherit from any element and is not inherited from. No restrictions are made on what properties apply to this pseudo-element either.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Since variables propagate via inheritance, that means that the &lt;code&gt;::backdrop&lt;/code&gt; doesn&amp;#39;t have access to variables defined on the &lt;code&gt;:root&lt;/code&gt; selector.&lt;/p&gt;
-&lt;p&gt;Fortunately, the fix is pretty simple: just define any variables that should be globally available on both the &lt;code&gt;:root&lt;/code&gt; and &lt;code&gt;::backdrop&lt;/code&gt; selectors.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-css&quot;&gt;:root,
-::backdrop {
-  --some-variable-name: 10px;
-  --some-other-variable-name: #f00;
-  /* etc etc */
 }
 &lt;/code&gt;&lt;/pre&gt;
 </content:encoded>
