@@ -6,7 +6,7 @@ Subscribe via [RSS](https://jakelazaroff.github.io/til/rss.xml)!
 
 ---
 
-41 TILs so far:
+42 TILs so far:
 
 ## bash
 
@@ -88,6 +88,10 @@ Subscribe via [RSS](https://jakelazaroff.github.io/til/rss.xml)!
 ## poetry
 
 - [Create `.venv` folders within projects](/poetry/Create-venv-folders-within-projects.md)
+
+## rust
+
+- [Link against a C++ file](/rust/link-against-a-cpp-file.md)
 
 ## svelte
 

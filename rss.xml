@@ -5,6 +5,55 @@
 <description>A collection of useful things I've learned.</description>
 <link>https://github.com/jakelazaroff/til</link>
 <item>
+<guid>https://github.com/jakelazaroff/til/blob/main/rust/link-against-a-cpp-file.md</guid>
+<link>https://github.com/jakelazaroff/til/blob/main/rust/link-against-a-cpp-file.md</link>
+<title>TIL (rust): Link against a C++ file</title>
+<pubDate>Tue, 26 Dec 2023 06:28:28 GMT</pubDate>
+<content:encoded>&lt;p&gt;While Rust natively supports linking against C, it needs an extra binding layer in order to link against C++. Although a library called &lt;a href=&quot;https://rust-lang.github.io/rust-bindgen/introduction.html&quot;&gt;bindgen&lt;/a&gt; can generate those bindings automatically, I wanted to see how to do it myself.&lt;/p&gt;
+&lt;p&gt;Rust has extensive documentation on writing a &lt;a href=&quot;https://doc.rust-lang.org/nomicon/ffi.html&quot;&gt;foreign function interace&lt;/a&gt;; here&amp;#39;s a minimal example of how to do it.&lt;/p&gt;
+&lt;p&gt;Let&amp;#39;s say we want to call this function in &lt;code&gt;lib/inc.cpp&lt;/code&gt; from Rust:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-cpp&quot;&gt;#include &amp;quot;inc.h&amp;quot;
+
+int twice(int x) { return x * 2; }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In the header file &lt;code&gt;lib/inc.h&lt;/code&gt;, &lt;code&gt;extern &amp;quot;C&amp;quot;&lt;/code&gt; &lt;a href=&quot;https://stackoverflow.com/a/1041880&quot;&gt;makes the function name linkable from C code&lt;/a&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-cpp&quot;&gt;extern &amp;quot;C&amp;quot; {
+int twice(int x);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can compile that function into a shared library &lt;code&gt;lib/libinc.so&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;g++ -shared lib/inc.cpp -o lib/libinc.so
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;(Note that in this case, we&amp;#39;re defining a C-linkable interface in the C++ file itself rather than adding an extra layer between C++ and Rust. If we couldn&amp;#39;t change the C++ source code, we could add another file in C or C++ that calls the C++ library, and then expose the C-linkable interface from &lt;em&gt;that&lt;/em&gt; file.)&lt;/p&gt;
+&lt;p&gt;In Rust, we can define a list of foreign functions within an &lt;code&gt;extern&lt;/code&gt; block, and then call into them from Rust code. Rust treats all foreign functions as unsafe, so we need to call it from within an &lt;code&gt;unsafe&lt;/code&gt; block:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-rs&quot;&gt;extern &amp;quot;C&amp;quot; {
+    fn twice(x: i32) -&amp;gt; i32;
+}
+
+fn main() {
+    unsafe {
+        println!(&amp;quot;{}&amp;quot;, twice(2));
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Trying to build or run this will result in a linker error about undefined symbols. We need to tell Rust how to find the library, which we can do by placing a &lt;a href=&quot;https://doc.rust-lang.org/cargo/reference/build-scripts.html#rustc-link-lib&quot;&gt;&lt;code&gt;build.rs&lt;/code&gt; file&lt;/a&gt; in the package root. TL;DR from the docs:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Build scripts communicate with Cargo by printing to stdout. Cargo will interpret each line that starts with cargo: as an instruction that will influence compilation of the package. All other lines are ignored.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Here&amp;#39;s our &lt;code&gt;build.rs&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-rs&quot;&gt;fn main() {
+    println!(&amp;quot;cargo:rustc-link-search=lib&amp;quot;);
+    println!(&amp;quot;cargo:rustc-link-lib=inc&amp;quot;);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;cargo:rustc-link-search=lib&lt;/code&gt; tells Cargo to look in the directory &lt;code&gt;lib&lt;/code&gt; for C libraries&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cargo:rustc-link-lib=inc&lt;/code&gt; tells Cargo to link against &lt;code&gt;libinc&lt;/code&gt; (the &lt;code&gt;lib&lt;/code&gt; prefix is implied)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Boom! Running &lt;code&gt;cargo run&lt;/code&gt; should now correctly print &lt;code&gt;4&lt;/code&gt; to the console.&lt;/p&gt;
+</content:encoded>
+</item>
+<item>
 <guid>https://github.com/jakelazaroff/til/blob/main/c/prevent-clangformat-from-breaking-before-curly-braces.md</guid>
 <link>https://github.com/jakelazaroff/til/blob/main/c/prevent-clangformat-from-breaking-before-curly-braces.md</link>
 <title>TIL (c): Prevent ClangFormat from breaking before curly braces</title>
@@ -249,24 +298,6 @@ const worker = new Worker(url);
 URL.revokeObjectURL(url);
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The call to &lt;code&gt;file.slice&lt;/code&gt; is there to fix a Safari bug where it can&amp;#39;t infer the MIME type.&lt;/p&gt;
-</content:encoded>
-</item>
-<item>
-<guid>https://github.com/jakelazaroff/til/blob/main/css/make-a-css-variable-color-translucent.md</guid>
-<link>https://github.com/jakelazaroff/til/blob/main/css/make-a-css-variable-color-translucent.md</link>
-<title>TIL (css): Make a CSS variable color translucent</title>
-<pubDate>Tue, 15 Aug 2023 19:13:11 GMT</pubDate>
-<content:encoded>&lt;p&gt;Given a color stored in a CSS variable, how do you change the opacity? This &lt;a href=&quot;https://stackoverflow.com/a/71098929&quot;&gt;Stack Overflow answer&lt;/a&gt; has a couple good suggestions.&lt;/p&gt;
-&lt;p&gt;First is &lt;code&gt;color-mix&lt;/code&gt;, which is &lt;a href=&quot;https://caniuse.com/?search=color-mix&quot;&gt;widely supported in browsers today&lt;/a&gt;. It lets you mix two colors in a given color space. The trick is to mix some percentage of the color variable with the color &lt;code&gt;transparent&lt;/code&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-css&quot;&gt;.classname {
-  color: color-mix(in srgb, var(--some-color) 50%, transparent);
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Next is relative color syntax, which &lt;a href=&quot;https://caniuse.com/css-relative-colors&quot;&gt;as of August 2023 is only supported in Safari&lt;/a&gt;. The keyword &lt;code&gt;from&lt;/code&gt; lets you convert colors between formats; you can then fill in the missing alpha value when passing it to &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/color_value&quot;&gt;a color function&lt;/a&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-css&quot;&gt;.classname {
-  color: rgb(from var(--some-color) / 50%);
-}
-&lt;/code&gt;&lt;/pre&gt;
 </content:encoded>
 </item>
 </channel>
