@@ -5,6 +5,34 @@
 <description>A collection of useful things I've learned.</description>
 <link>https://github.com/jakelazaroff/til</link>
 <item>
+<guid>https://github.com/jakelazaroff/til/blob/main/css/use-grid-template-to-set-grid-columns-rows-and-areas.md</guid>
+<link>https://github.com/jakelazaroff/til/blob/main/css/use-grid-template-to-set-grid-columns-rows-and-areas.md</link>
+<title>TIL (css): Use &#x60;grid-template&#x60; to set grid columns, rows and areas</title>
+<pubDate>Sun, 31 Dec 2023 16:01:17 GMT</pubDate>
+<content:encoded>&lt;p&gt;I&amp;#39;m always forgetting how the &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template&quot;&gt;grid-template&lt;/a&gt; shorthand works, so here&amp;#39;s a quick reference.&lt;/p&gt;
+&lt;p&gt;The simplest usage is just as a shorthand for &lt;code&gt;grid-rows&lt;/code&gt; and &lt;code&gt;grid-columns&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-css&quot;&gt;grid-template: 2rem 1fr / 20rem 1fr;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Before the slash is rows; after the slash is columns. It&amp;#39;s equivalent to this longhand:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-css&quot;&gt;grid-template-rows: 2rem 1fr;
+grid-template-columns 20rem 1fr;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Things get a little more interesting when you also use it as a shorthand for &lt;code&gt;grid-template-areas&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-css&quot;&gt;grid-template:
+  &amp;quot;toolbar toolbar&amp;quot; 2rem
+  &amp;quot;sidebar content&amp;quot; 1fr
+  / 20rem 1fr;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Each line before the slash contains the grid area names and height of a row; after the slash contains the column sizes. It&amp;#39;s equivalent to this longhand:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-css&quot;&gt;grid-template-rows: 2rem 1fr;
+grid-template-columns: 20rem 1fr;
+grid-template-areas:
+  &amp;quot;toolbar toolbar&amp;quot;
+  &amp;quot;sidebar content&amp;quot;;
+&lt;/code&gt;&lt;/pre&gt;
+</content:encoded>
+</item>
+<item>
 <guid>https://github.com/jakelazaroff/til/blob/main/rust/link-against-a-cpp-file.md</guid>
 <link>https://github.com/jakelazaroff/til/blob/main/rust/link-against-a-cpp-file.md</link>
 <title>TIL (rust): Link against a C++ file</title>
@@ -272,32 +300,6 @@ class B extends Base {
 &lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;const color = getComputedStyle(document.documentElement).getPropertyValue(&amp;quot;--color-primary&amp;quot;);
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;code&gt;getComputedStyle&lt;/code&gt; takes a DOM node and returns a live &lt;code&gt;CSSStyleDeclaration&lt;/code&gt;, which contains all the styles applied to that element. Calling &lt;code&gt;getPropertyValue&lt;/code&gt; returns the value for a given property, which includes CSS variable declarations. So if there&amp;#39;s a variable defined on the &lt;code&gt;:root&lt;/code&gt; selector, you can get the value by calling &lt;code&gt;getPropertyValue(&amp;quot;--variable-name&amp;quot;)&lt;/code&gt;!&lt;/p&gt;
-</content:encoded>
-</item>
-<item>
-<guid>https://github.com/jakelazaroff/til/blob/main/javascript/load-a-user-created-javascript-file-in-the-browser.md</guid>
-<link>https://github.com/jakelazaroff/til/blob/main/javascript/load-a-user-created-javascript-file-in-the-browser.md</link>
-<title>TIL (javascript): Load a user-created JavaScript file in the browser</title>
-<pubDate>Mon, 21 Aug 2023 18:55:09 GMT</pubDate>
-<content:encoded>&lt;p&gt;I ran into this when building a &lt;a href=&quot;https://jakelazaroff.com/words/building-a-live-coding-audio-playground/&quot;&gt;live coding audio playground&lt;/a&gt;, and presumably it&amp;#39;s useful for other similar apps. The issue is that APIs like &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/AudioWorklet&quot;&gt;&lt;code&gt;AudioWorklet&lt;/code&gt;&lt;/a&gt; expect to be given a separate JavaScript file to run as a worker or worklet, but for apps in which the user writes code themselves there&amp;#39;s no easy way to serve that file (without running a webserver).&lt;/p&gt;
-&lt;p&gt;The trick is to use a combination of a &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/File&quot;&gt;&lt;code&gt;File&lt;/code&gt;&lt;/a&gt; (which represents raw data, plus some file-specific things like a name) and &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/URL/createObjectURL_static&quot;&gt;&lt;code&gt;URL.createObjectURL&lt;/code&gt;&lt;/a&gt;, which lets you create &amp;quot;stub&amp;quot; URLs for &lt;code&gt;File&lt;/code&gt; objects.&lt;/p&gt;
-&lt;p&gt;Here&amp;#39;s how to use the trick create a Web Worker:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;// source code goes here
-const src = &amp;quot;&amp;quot;;
-
-// create a fake JS file from the source code
-const file = new File([src], &amp;quot;file.js&amp;quot;);
-
-// create a URL for the fake JS file
-const url = URL.createObjectURL(file.slice(0, file.size, &amp;quot;application/javascript&amp;quot;));
-
-// add the fake JS file as a Web Worker
-const worker = new Worker(url);
-
-// revoke the URL so as to not leak memory
-URL.revokeObjectURL(url);
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The call to &lt;code&gt;file.slice&lt;/code&gt; is there to fix a Safari bug where it can&amp;#39;t infer the MIME type.&lt;/p&gt;
 </content:encoded>
 </item>
 </channel>

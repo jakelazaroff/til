@@ -6,7 +6,7 @@ Subscribe via [RSS](https://jakelazaroff.github.io/til/rss.xml)!
 
 ---
 
-42 TILs so far:
+43 TILs so far:
 
 ## bash
 
@@ -27,6 +27,7 @@ Subscribe via [RSS](https://jakelazaroff.github.io/til/rss.xml)!
 - [Make a CSS variable color translucent](/css/make-a-css-variable-color-translucent.md)
 - [Set default styles for tags](/css/set-default-styles-for-tags.md)
 - [Use CSS variables in a `<dialog>` backdrop](/css/use-css-variables-in-a-dialog-backdrop.md)
+- [Use `grid-template` to set grid columns, rows and areas](/css/use-grid-template-to-set-grid-columns-rows-and-areas.md)
 
 ## docker
 
