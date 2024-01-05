@@ -1,0 +1,81 @@
+# This script creates a nice README.md with an index of all TIL files.
+# TIL files are Markdown files named anything other than README.md.
+#
+# The readme is split into two sections: the "header" and the "index",
+# separated by three hyphens on their own line.
+# Anything above the three hyphens is the "header" and will be kept as is.
+# Anything below will be replaced by the "index".
+
+name: Build README
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # get full history or else it'll be overwritten
+
+      - name: Regenerate README
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const { readFile, writeFile } = require("node:fs/promises");
+
+            console.log("Building index…");
+
+            // load readme
+            let readme = await readFile("README.md").then(file => file.toString());
+
+            // add header separator
+            const separator = "\n---\n";
+            const index = readme.indexOf(separator);
+            if (index === -1) readme += separator;
+            else readme = readme.substring(0, index + separator.length);
+
+            // collect entries
+            const files = await glob.create("./**/*.md").then(globber => globber.glob());
+            const entries = files
+              .filter(name => !name.endsWith("/README.md")) // exclude README.md
+              .sort()
+              .map(name => name.split("/").slice(-2));
+
+            // add summary
+            readme += `\n${entries.length} TILs so far:\n`;
+
+            // create category map
+            const categories = new Map();
+            for (const [category, file] of entries) {
+              const list = categories.get(category) || [];
+              categories.set(category, [...list, file]);
+            }
+
+            // create a section for each category
+            for (const [category, entries] of categories.entries()) {
+              // write category header
+              readme += `\n## ${category}\n\n`;
+
+              // write link for each file
+              for (const file of entries) {
+                const filepath = [category, file].join("/");
+                const contents = await readFile(filepath).then(file => file.toString());
+                const [, title] = contents.match(/^# (.+)$/m);
+                readme += `- [${title}](/${filepath})\n`;
+              }
+            }
+
+            // write readme
+            await writeFile("README.md", readme);
+
+      - name: Commit and push if README changed
+        run: |-
+          git config --global user.email "actions@users.noreply.github.com"
+          git config --global user.name "tilbot"
+          git diff --quiet || git commit --all --message "Update README.md"
+          git push
