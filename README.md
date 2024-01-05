@@ -6,7 +6,7 @@ Subscribe via [RSS](https://jakelazaroff.github.io/til/rss.xml)!
 
 ---
 
-43 TILs so far:
+44 TILs so far:
 
 ## bash
 
@@ -50,6 +50,7 @@ Subscribe via [RSS](https://jakelazaroff.github.io/til/rss.xml)!
 ## github
 
 - [Run GitHub Actions locally](/github/run-github-actions-locally.md)
+- [Trigger a workflow run in another repo](/github/trigger-a-workflow-run-in-another-repo.md)
 - [Write an inline script in a GitHub Actions workflow](/github/write-an-inline-script-in-a-github-actions-workflow.md)
 
 ## gltf
