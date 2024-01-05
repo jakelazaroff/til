@@ -2,7 +2,9 @@
 
 A collection of useful things I've learned. Inspired by [simonw/til](https://github.com/simonw/til).
 
-Subscribe via [RSS](https://jakelazaroff.github.io/til/rss.xml)!
+See the full website at [til.jakelazaroff.com](https://til.jakelazaroff.com).
+
+Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 
 ---
 
