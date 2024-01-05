@@ -88,7 +88,7 @@ Subscribe via [RSS](https://jakelazaroff.github.io/til/rss.xml)!
 
 ## poetry
 
-- [Create `.venv` folders within projects](/poetry/Create-venv-folders-within-projects.md)
+- [Create `.venv` folders within projects](/poetry/create-venv-folders-within-projects.md)
 
 ## rust
 
