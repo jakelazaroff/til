@@ -8,7 +8,11 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 
 ---
 
-44 TILs so far:
+45 TILs so far:
+
+## astro
+
+- [Generate a static SVG sprite sheet](/astro/generate-a-static-svg-sprite-sheet.md)
 
 ## bash
 
