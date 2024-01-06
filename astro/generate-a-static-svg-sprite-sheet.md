@@ -10,7 +10,7 @@ Generally, my process looks something like this:
 
 I usually run it out of band, immediately before actually building the website. My build command ends up looking something like `pnpm svg && pnpm build` (where those are both `package.json` scripts that build the sprite sheet and the rest of the site).
 
-No longer! At least for Astro sites. Arne Bahlo has a great tutorial on [statically generating open graph images using Astro API routes](https://arne.me/articles/static-og-images-in-astro), and I realized that I use do the same technique to generate SVG sprite sheets.
+No longer! At least for Astro sites. Arne Bahlo has a great tutorial on [statically generating open graph images using Astro API routes](https://arne.me/articles/static-og-images-in-astro), and I realized that the same technique will work to generate SVG sprite sheets.
 
 The key insight is that in static mode, [API routes](https://docs.astro.build/en/core-concepts/endpoints/#server-endpoints-api-routes) get rendered to static files. So this roughly the same workflow, except `svg-sprite` gets called programmatically instead of on the command line.
 
@@ -21,18 +21,13 @@ First, install `svg-sprite` (and `@types/svg-sprite` if you're using TypeScript)
 Then, add this `icons.svg.js` file to your `pages` directory:
 
 ```js
-import type { APIRoute } from "astro";
-import SVGSpriter from "svg-sprite";
 import { readdir, readFile } from "node:fs/promises";
 import { resolve } from "node:path";
-
-interface Result {
-  symbol: { sprite: { contents: Buffer } };
-}
+import SVGSpriter from "svg-sprite";
 
 const ICON_DIR = "./assets/icons";
 
-export const GET: APIRoute = async function GET() {
+export const GET = async function GET() {
   // create an `svg-sprite` instance
   const spriter = new SVGSpriter({ mode: { symbol: true } });
 
@@ -43,7 +38,7 @@ export const GET: APIRoute = async function GET() {
   }
 
   // compile the svgs into a sprite sheet
-  const { result } = (await spriter.compileAsync()) as { result: Result };
+  const { result } = await spriter.compileAsync();
 
   // respond with the compiled svg
   const svg = result.symbol.sprite.contents;
@@ -51,7 +46,7 @@ export const GET: APIRoute = async function GET() {
 };
 ```
 
-Every time there's a request to `/icons.svg`, that will read all the SVGs in `/assets/icons`, compile them to a sprite sheet and respond with it. (That sounds inefficient, but remember that it'll get compiled to a static file.)
+Every time there's a request to `/icons.svg`, that will read all the SVGs in `/assets/icons`, compile them to a sprite sheet and respond with it. That sounds inefficient, but remember that "every time there's a request" only happens in development; for production, the handler runs once at build time and the generated SVG file is written to disk.
 
 To actually use the resulting sprite, I have this Astro component:
 
