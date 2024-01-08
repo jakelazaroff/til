@@ -8,7 +8,7 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 
 ---
 
-45 TILs so far:
+46 TILs so far:
 
 ## astro
 
@@ -26,6 +26,10 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 ## c
 
 - [Prevent ClangFormat from breaking before curly braces](/c/prevent-clangformat-from-breaking-before-curly-braces.md)
+
+## caddy
+
+- [Run a local static file server over HTTPS](/caddy/run-a-local-static-file-server-over-https.md)
 
 ## css
 
