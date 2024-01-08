@@ -1,6 +1,6 @@
 # Generate a static SVG sprite sheet
 
-Since learning about [SVG sprite sheets](/svg/create-an-svg-sprite-sheet.md), I've used them rather than SVGs inlined in HTML.
+Since learning about SVG sprite sheets, I've used them rather than SVGs inlined in HTML.
 
 Generally, my process looks something like this:
 
