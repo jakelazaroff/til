@@ -8,7 +8,7 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 
 ---
 
-46 TILs so far:
+47 TILs so far:
 
 ## astro
 
@@ -100,6 +100,10 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 ## poetry
 
 - [Create `.venv` folders within projects](/poetry/create-venv-folders-within-projects.md)
+
+## rsbuild
+
+- [Migrate from Create React App](/rsbuild/migrate-from-create-react-app.md)
 
 ## rust
 
