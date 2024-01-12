@@ -8,7 +8,7 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 
 ---
 
-47 TILs so far:
+48 TILs so far:
 
 ## astro
 
@@ -100,6 +100,10 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 ## poetry
 
 - [Create `.venv` folders within projects](/poetry/create-venv-folders-within-projects.md)
+
+## redbean
+
+- [Bundle files into a redbean zip archive](/redbean/bundle-files-into-a-redbean-zip-archive.md)
 
 ## rsbuild
 
