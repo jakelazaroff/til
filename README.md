@@ -8,7 +8,7 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 
 ---
 
-48 TILs so far:
+49 TILs so far:
 
 ## astro
 
@@ -30,6 +30,7 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 ## caddy
 
 - [Run a local static file server over HTTPS](/caddy/run-a-local-static-file-server-over-https.md)
+- [Serve Markdown files as HTML](/caddy/serve-markdown-files-as-html.md)
 
 ## css
 
