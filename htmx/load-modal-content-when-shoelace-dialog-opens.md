@@ -13,6 +13,6 @@ If parts of the modal don't need to be loaded via HTTP — for example, the titl
 ```html
 <sl-dialog hx-get="/modal/content/" hx-trigger="sl-show" hx-target="find .content">
   <span slot="label">My Modal</span>
-  <div class="content">
+  <div class="content"></div>
 </sl-dialog>
 ```
