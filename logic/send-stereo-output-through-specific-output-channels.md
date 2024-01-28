@@ -1,6 +1,6 @@
 # Send stereo output through specific output channels
 
-This probably works for many audio interfaces, though in this case I'm using it with a [Quad Cortex](https://neuraldsp.com/quad-cortex). When I have my interface hooked up to my computer, I want to route stereo output to the specific output channels that are connected to my speakers.
+This probably works for many audio interfaces, though in this case I'm using a [Quad Cortex](https://neuraldsp.com/quad-cortex). When I have my interface hooked up to Logic Pro, I want to route stereo output to the specific output channels that are connected to my speakers.
 
 This works as of Logic Pro 10.8.1.
 
