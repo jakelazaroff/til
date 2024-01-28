@@ -8,7 +8,7 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 
 ---
 
-49 TILs so far:
+50 TILs so far:
 
 ## astro
 
@@ -77,6 +77,10 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 
 - [Access CSS variables from JavaScript](/javascript/access-css-variables-from-javascript.md)
 - [Load a user-created JavaScript file in the browser](/javascript/load-a-user-created-javascript-file-in-the-browser.md)
+
+## logic
+
+- [Send stereo output through specific output channels](/logic/send-stereo-output-through-specific-output-channels.md)
 
 ## make
 
