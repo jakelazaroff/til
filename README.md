@@ -8,7 +8,7 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 
 ---
 
-51 TILs so far:
+52 TILs so far:
 
 ## astro
 
@@ -122,6 +122,7 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 ## svelte
 
 - [Bail out of a reactive block](/svelte/bail-out-of-a-reactive-block.md)
+- [Force reactive state to reevaluate](/svelte/force-reactive-state-to-reevaluate.md)
 
 ## svg
 
