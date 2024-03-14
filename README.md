@@ -8,7 +8,7 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 
 ---
 
-52 TILs so far:
+53 TILs so far:
 
 ## astro
 
@@ -106,6 +106,10 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 ## poetry
 
 - [Create `.venv` folders within projects](/poetry/create-venv-folders-within-projects.md)
+
+## prosemirror
+
+- [Use a Svelte component as a NodeView](/prosemirror/use-a-svelte-component-as-a-nodeview.md)
 
 ## redbean
 
