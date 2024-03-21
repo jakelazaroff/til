@@ -8,7 +8,7 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 
 ---
 
-53 TILs so far:
+54 TILs so far:
 
 ## astro
 
@@ -39,6 +39,10 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 - [Set default styles for tags](/css/set-default-styles-for-tags.md)
 - [Use CSS variables in a `<dialog>` backdrop](/css/use-css-variables-in-a-dialog-backdrop.md)
 - [Use `grid-template` to set grid columns, rows and areas](/css/use-grid-template-to-set-grid-columns-rows-and-areas.md)
+
+## django
+
+- [Conditionally extend a template](/django/conditionally-extend-a-template.md)
 
 ## docker
 
