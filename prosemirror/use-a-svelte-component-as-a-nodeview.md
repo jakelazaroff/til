@@ -2,7 +2,7 @@
 
 The ProseMirror rich text editor library has a concept called `NodeView` for [rendering custom widgets with a document](https://prosemirror.net/docs/guide/#view.node_views).
 
-To use a NodeView, you write a "constructor" function that takes in the ProseMirror `Node`, `EditorView` and a function to get the node's position. That function is expected to set up the DOM for the custom widget and return an object implementing the [`NodeView` interface](https://prosemirror.net/docs/ref/#view.NodeView).
+To use a `NodeView`, you write a "constructor" function that takes in the ProseMirror `Node`, `EditorView` and a function to get the node's position. That function is expected to set up the DOM for the custom widget and return an object implementing the [`NodeView` interface](https://prosemirror.net/docs/ref/#view.NodeView).
 
 The examples set up DOM using vanilla JS, but it's pretty simple to instead create a DOM element and render a framework component inside of it. This general approach should work for any framework — Svelte, React, Solid, etc — as well as with web components.
 
