@@ -8,7 +8,7 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 
 ---
 
-54 TILs so far:
+55 TILs so far:
 
 ## astro
 
@@ -113,6 +113,7 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 
 ## prosemirror
 
+- [Prevent extra whitespace in NodeViews](/prosemirror/prevent-extra-whitespace-in-nodeviews.md)
 - [Use a Svelte component as a NodeView](/prosemirror/use-a-svelte-component-as-a-nodeview.md)
 
 ## redbean
