@@ -8,7 +8,7 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 
 ---
 
-55 TILs so far:
+56 TILs so far:
 
 ## astro
 
@@ -51,6 +51,7 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 
 ## entr
 
+- [Reload a webpage when a file changes](/entr/reload-a-webpage-when-a-file-changes.md)
 - [Rerun a command when files change](/entr/rerun-a-command-when-files-change.md)
 
 ## esbuild
