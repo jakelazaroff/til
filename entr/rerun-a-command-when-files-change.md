@@ -7,13 +7,13 @@ Well, not anymore: there's an awesome little command line tool called [`entr`](h
 The TL;DR is that you take a list of files to watch and pipe it to `entr` plus some command, and `entr` will rerun that command whenever one of those files changes. Like if you want to rerun tests when your files change:
 
 ```sh
-find . -name *.ts | entr npm test
+find . -name "*.ts"" | entr npm test
 ```
 
 A useful command to use in combination is `git ls-files `, which lists all the files that git is tracking:
 
 ```sh
-find . -name *.ts | entr npm test
+git ls-files | entr npm test
 ```
 
 The `-r` option will make it restart long-running tasks, which is perfect for webservers:
