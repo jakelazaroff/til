@@ -8,7 +8,7 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 
 ---
 
-56 TILs so far:
+57 TILs so far:
 
 ## astro
 
@@ -63,6 +63,7 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 - [Ignore all `.DS_Store` files](/git/ignore-all-ds-store-files.md)
 - [List all files tracked by git](/git/list-all-files-tracked-by-git.md)
 - [Run a command if there are unstaged changes](/git/run-a-command-if-there-are-unstaged-changes.md)
+- [Update all submodules to latest commit on origin](/git/update-all-submodules-to-latest-commit-on-origin.md)
 
 ## github
 
