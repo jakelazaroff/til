@@ -8,7 +8,7 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 
 ---
 
-57 TILs so far:
+58 TILs so far:
 
 ## astro
 
@@ -96,6 +96,7 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 
 ## math
 
+- [Check whether an angle is between two other angles](/math/check-whether-an-angle-is-between-two-other-angles.md)
 - [Convert between 3D coordinate systems](/math/convert-between-3d-coordinate-systems.md)
 - [Find a point on a sphere](/math/find-a-point-on-a-sphere.md)
 - [Rotate a point around a circle](/math/rotate-a-point-around-a-circle.md)
