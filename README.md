@@ -8,7 +8,7 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 
 ---
 
-58 TILs so far:
+59 TILs so far:
 
 ## astro
 
@@ -139,6 +139,10 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 ## svg
 
 - [Create an SVG sprite sheet](/svg/create-an-svg-sprite-sheet.md)
+
+## systemd
+
+- [Set up a basic service](/systemd/set-up-a-basic-service.md)
 
 ## tailwind
 
