@@ -44,7 +44,9 @@ Devon's example makes two big changes:
 1. It discards the chroma and hue values, replacing them with `0`.
 2. It inverts the color's lightness and multiplies it by `infinity` to obtain white or black.
 
-#2 might be confusing, so let's dig into some examples. Remember, the calculation is `(49.44 - l) * infinity`, clamped within the range `[0, 100]`:
+#2 might be confusing, so let's dig into some examples. The basic idea is that if a color's lightness is _above_ some threshold value, we want the text to be black; if it's _below_ that value, we want the text to be white.
+
+Remember, the calculation is `(49.44 - l) * infinity`, clamped within the range `[0, 100]`:
 
 - CSS `red` has an LCH lightness of `54.29`.
   1. `49.44` - `54.29` = `-4.85`
@@ -60,3 +62,5 @@ Devon's example makes two big changes:
   3. `-infintiy` gets clamped to `0` <span style="border-radius: 2px; padding: 0 2px; background: white; color: black">(black)</span>
 
 Why `49.44`? Devon tested it with all RGB colors and found it had the least number of WCAG 4.5:1 contrast failures.
+
+Addendum: After publishing, Noah Liebman [pointed out to me](https://mastodon.social/@noleli/113586705788122139) that Lea Verou had [independently come up with the same technique](https://lea.verou.me/blog/2024/contrast-color/) earlier this year!
