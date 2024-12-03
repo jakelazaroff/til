@@ -8,7 +8,7 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 
 ---
 
-59 TILs so far:
+60 TILs so far:
 
 ## astro
 
@@ -37,6 +37,7 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 - [Dynamically change styles from HTML or JSX](/css/dynamically-change-styles-from-html-or-jsx.md)
 - [Make a CSS variable color translucent](/css/make-a-css-variable-color-translucent.md)
 - [Set default styles for tags](/css/set-default-styles-for-tags.md)
+- [Swap between black and white text based on background color](/css/swap-between-black-and-white-text-based-on-background-color.md)
 - [Use CSS variables in a `<dialog>` backdrop](/css/use-css-variables-in-a-dialog-backdrop.md)
 - [Use `grid-template` to set grid columns, rows and areas](/css/use-grid-template-to-set-grid-columns-rows-and-areas.md)
 
