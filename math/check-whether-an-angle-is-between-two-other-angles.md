@@ -17,7 +17,7 @@ export function normalize(angle: number) {
 
 Three steps here:
 
-1. Modulo the angle by `2π`. If it's positive, this compresses it into the range `[0, 2π]`; f it's negative, this compresses it into the range `[-2π, 0]`.
+1. Modulo the angle by `2π`. If it's positive, this compresses it into the range `[0, 2π]`; if it's negative, this compresses it into the range `[-2π, 0]`.
 2. Add `2π`. This increases the range to `[0, 4π]`, ensuring it's positive.
 3. Modulo the angle by `2π` again, compressing it into the range `[0, 2π]`.
 
