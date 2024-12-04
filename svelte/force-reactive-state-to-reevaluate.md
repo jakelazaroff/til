@@ -2,13 +2,13 @@
 
 In Svelte 5, you declare a reactive variable using the [`$state` rune](https://svelte.dev/blog/runes).
 
-```svelte
+```js
 let something = $state(1);
 ```
 
 Svelte will track anything that depends on that variable — such as a derived variable, or an effect — and update it whenever the value changes:
 
-```svelte
+```js
 let something = $state(1);
 let doubled = $derived(something * 2);
 
@@ -21,7 +21,7 @@ In this case, setting `something` to 2 will update `doubled` to 4 and run the ef
 
 Previous verisons of Svelte would use self-assignments (e.g. `something = something`) to update dependents. In Svelte 5, that no longer works — which presents a problem if you're trying to use a class that mutates itself, such as a [Yjs](https://yjs.dev) document:
 
-```svelte
+```js
 import * as Y from "yjs";
 
 let doc = $state(new Y.Doc());
@@ -37,7 +37,7 @@ array.insert(0, ["val"]);
 
 However, it **does** work if you first assign `undefined` to the state:
 
-```svelte
+```js
 import * as Y from "yjs";
 
 let doc = $state(new Y.Doc());
