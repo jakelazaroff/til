@@ -8,7 +8,7 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 
 ---
 
-61 TILs so far:
+62 TILs so far:
 
 ## 1password
 
@@ -166,3 +166,7 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 - [tsconfig flags to prevent common errors](/typescript/tsconfig-flags-to-prevent-common-errors.md)
 - [Type concrete subclasses of an abstract class](/typescript/type-concrete-subclasses-of-an-abstract-class.md)
 - [Types and variables can share names](/typescript/types-and-variables-can-share-names.md)
+
+## volta
+
+- [Install Volta with Homebrew](/volta/install-volta-with-homebrew.md)
