@@ -8,7 +8,7 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 
 ---
 
-62 TILs so far:
+63 TILs so far:
 
 ## 1password
 
@@ -105,6 +105,10 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 - [Convert between 3D coordinate systems](/math/convert-between-3d-coordinate-systems.md)
 - [Find a point on a sphere](/math/find-a-point-on-a-sphere.md)
 - [Rotate a point around a circle](/math/rotate-a-point-around-a-circle.md)
+
+## nextjs
+
+- [Don't server-side render a client component](/nextjs/dont-server-side-render-a-client-component.md)
 
 ## nodejs
 
