@@ -8,7 +8,7 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 
 ---
 
-63 TILs so far:
+64 TILs so far:
 
 ## 1password
 
@@ -38,6 +38,7 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 
 ## css
 
+- [Anchor scroll position to the bottom](/css/anchor-scroll-position-to-the-bottom.md)
 - [Dynamically change styles from HTML or JSX](/css/dynamically-change-styles-from-html-or-jsx.md)
 - [Make a CSS variable color translucent](/css/make-a-css-variable-color-translucent.md)
 - [Set default styles for tags](/css/set-default-styles-for-tags.md)
