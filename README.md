@@ -8,7 +8,7 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 
 ---
 
-64 TILs so far:
+65 TILs so far:
 
 ## 1password
 
@@ -90,6 +90,7 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 
 - [Access CSS variables from JavaScript](/javascript/access-css-variables-from-javascript.md)
 - [Load a user-created JavaScript file in the browser](/javascript/load-a-user-created-javascript-file-in-the-browser.md)
+- [Programmatically create SVG elements](/javascript/programmatically-create-svg-elements.md)
 
 ## logic
 
