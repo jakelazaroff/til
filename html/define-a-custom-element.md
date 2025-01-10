@@ -117,12 +117,12 @@ class MyElement extends HTMLElement {
     const ce = customElements.get(tag);
     if (Boolean(ce) && ce !== this) return console.warn(`<${tag}> already defined as ${ce.name}!`);
 
-    customElements.define(tag, this)
+    customElements.define(tag, this);
   }
 
   static {
     const tag = new URL(import.meta.url).searchParams.get("define") || this.tag;
-    if (define !== "false") this.define(tag);
+    if (tag !== "false") this.define(tag);
   }
 }
 ```
