@@ -8,7 +8,7 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 
 ---
 
-65 TILs so far:
+67 TILs so far:
 
 ## 1password
 
@@ -80,6 +80,10 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 ## gltf
 
 - [Extract data from a mesh primitive](/gltf/extract-data-from-a-mesh-primitive.md)
+
+## html
+
+- [Define a custom element](/html/define-a-custom-element.md)
 
 ## htmx
 
@@ -168,6 +172,7 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 
 ## typescript
 
+- [Add custom element to `JSX.IntrinsicElements`](/typescript/add-custom-element-to-jsx-intrinsic-elements.md)
 - [Assert that a variable is not `null` or `undefined`](/typescript/assert-that-a-variable-is-not-null-or-undefined.md)
 - [tsconfig flags to prevent common errors](/typescript/tsconfig-flags-to-prevent-common-errors.md)
 - [Type concrete subclasses of an abstract class](/typescript/type-concrete-subclasses-of-an-abstract-class.md)
