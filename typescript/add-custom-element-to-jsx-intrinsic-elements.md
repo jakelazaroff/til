@@ -13,6 +13,8 @@ Okay, so that's a TypeScript issue. But the `JSX.IntrinsicElements` type definit
 Anyway, I found [this blog post](https://medium.com/@joelmalone/get-jsx-to-recognise-your-custom-element-in-react-or-preact-bf08d7522208) that got me most of the way there:
 
 ```ts
+import type { HTMLAttributes } from "react";
+
 declare module "react/jsx-runtime" {
   namespace JSX {
     interface IntrinsicElements {
@@ -57,3 +59,5 @@ declare module "react/jsx-runtime" {
   }
 }
 ```
+
+I haven't tested this with Preact — much less other frameworks that use JSX, like Hono. But in theory it should work if you change `react/jsx-runtime` to `preact/jsx-runtime` (or whatever the corresponding module name is) and swap out React's types for the other framework's.
