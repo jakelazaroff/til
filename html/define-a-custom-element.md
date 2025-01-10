@@ -2,7 +2,7 @@
 
 I've been using web components for a bit, and I've accrued a bit of code I generally use as a base for my custom elements. "Boilerplate" has a negative connotation, so let's just call it a "web component starter kit".
 
-Here's my usual base, heavily inspired by Mayank's post on [defining a custom element](https://mayank.co/blog/defining-custom-elements/).
+Here's my usual base, heavily inspired by Mayank's post on [defining custom elements](https://mayank.co/blog/defining-custom-elements/).
 
 ```js
 class MyElement extends HTMLElement {
@@ -59,7 +59,7 @@ It uses `import.meta.url` to check whether the component was imported using a `?
 
 ```js
 if (new URL(import.meta.url).searchParams.has("define")) {
-	customElements.define("bleh-bleh-bleh", BlehBlehBlehElement);
+  customElements.define("bleh-bleh-bleh", BlehBlehBlehElement);
 }
 ```
 
@@ -130,10 +130,10 @@ class MyElement extends HTMLElement {
 A couple caveats here:
 
 - Westbrook Johnson pointed out that [importing a file twice with different query strings might create different modules in the module graph](https://mastodon.social/@westbrook/113271725600420967). This is probably an edge case (since, unlike with framework components, you should only ever need to import web components once) but it's worth keeping in mind.
-- Óscar Otero suggested that [it won't work if you use a bundler](https://mastodon.gal/@misteroom/113271013172508655). I've used it successfully in a React component in an Astro app (meaning with Vite) but I haven't tested it out side of that.
+- Óscar Otero suggested that [it won't work if you use a bundler](https://mastodon.gal/@misteroom/113271013172508655). I've used it successfully in a React component in an Astro app (meaning with Vite) but I haven't tested it outside of that.
 - Static initialization blocks don't get inherited like normal static variables. That means if you write something like this, it won't automatically define itself:
   ```js
-  class MyOtherElement {
+  class MyOtherElement extends MyElement {
     static tag = "other-element";
   }
   ```

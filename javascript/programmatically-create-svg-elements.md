@@ -12,7 +12,7 @@ I mean, you can, but it won't work. These will both throw exceptions:
 
 ```js
 console.assert(svg instanceof SVGSVGElement, "%o is an SVG element", svg);
-console.assert(line instanceof SVGLineElement, "%o is an SVG element", svg);
+console.assert(line instanceof SVGLineElement, "%o is an SVG element", line);
 ```
 
 What you need instead is [`document.createElementNS`](https://developer.mozilla.org/en-US/docs/Web/API/Document/createElementNS):
