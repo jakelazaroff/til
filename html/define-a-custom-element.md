@@ -2,7 +2,7 @@
 
 I've been using web components for a bit, and I've accrued a bit of code I generally use as a base for my custom elements. "Boilerplate" has a negative connotation, so let's just call it a "web component starter kit".
 
-Here's my usual base, heavily inspired by Mayank's post on [defining custom elements](https://mayank.co/blog/defining-custom-elements/).
+Let's start with the finished product (as of today, at least) and then we'll talk about how I got there:
 
 ```js
 class MyElement extends HTMLElement {
@@ -17,10 +17,38 @@ class MyElement extends HTMLElement {
     const ce = customElements.get(tag);
     if (Boolean(ce) && ce !== this) return console.warn(`<${tag}> already defined as ${ce.name}!`);
 
+    customElements.define(tag, this);
+  }
+
+  static {
+    const tag = new URL(import.meta.url).searchParams.get("define") || this.tag;
+    if (tag !== "false") this.define(tag);
+  }
+}
+```
+
+The first parts are heavily inspired by Mayank's post on [defining custom elements](https://mayank.co/blog/defining-custom-elements/).
+For a long time after reading that, my boilerplate looked like this:
+
+```js
+class MyElement extends HTMLElement {
+  static tag = "my-element";
+
+  static define(tag = this.tag) {
+    this.tag = tag;
+
+    const name = customElements.getName(this);
+    if (name) return console.warn(`${this.name} already defined as <${name}>!`);
+
+    const ce = customElements.get(tag);
+    if (ce && ce !== this) return console.warn(`<${tag}> already defined as ${ce.name}!`);
+
     customElements.define(tag, this)
   }
 }
 ```
+
+It's the same as what Mayank ended up with, plus a couple of checks to guard against accidentally defining a custom element class or tag name twice.
 
 This gives a lot of flexibilty to the person using the component:
 
@@ -35,7 +63,7 @@ This gives a lot of flexibilty to the person using the component:
   MyOtherElement.define();
   ```
 
-However, there's one nagging caveat to leaving it like this: the person using the component _needs_ to define it somehow.
+However, there's one nagging drawback: the person using the component _needs_ to define it somehow.
 They can't just include a script tag like this:
 
 ```js
@@ -84,8 +112,8 @@ if (tag !== 'false') MyElement.define(tag);
 There's a lot going on in a few lines, so let's go through it:
 
 1. First, we set `tag` to the _value_ of the query string parameter `define`, falling back to `undefined` instead of an empty string.
-2. If `tag` is not equal to `none` (meaning the query string parameter was either set explicitly or omitted entirely) we call `MyElement.define(tag)`. That will either use the given tag name or fall back to the default argument, which is the value of `Myelement.tag`.
-3. If `tag` is set to `false`, we don't do anything. We know this won't conflict with any custom element tag name the user might want to set, because custom element tag names must include a hyphen.
+2. If `tag` is not equal to `"false"` (meaning the query string parameter was either set explicitly or omitted entirely) we call `MyElement.define(tag)`. That will either use the given tag name or fall back to the default argument, which is the value of `Myelement.tag`.
+3. If `tag` is set to `"false"`, we don't do anything. We know this won't conflict with any custom element tag name the user might want to set, because custom element tag names must include a hyphen.
 
 So to import the component and define it with the default tag name, you'd import `my-element.js` and it should Just Work. To import it with a custom tag name, you'd import `my-element.js?define=other-tag-name`. And to import it without defining it at all, you'd import `my-element.js?define=false`.
 
@@ -98,31 +126,6 @@ class MyElement extends HTMLElement {
   static {
     const tag = new URL(import.meta.url).searchParams.get("define") || this.tag;
     if (define !== "false") this.define(tag);
-  }
-}
-```
-
-Here's the full boilerplate:
-
-```js
-class MyElement extends HTMLElement {
-  static tag = "my-element";
-
-  static define(tag = this.tag) {
-    this.tag = tag;
-
-    const name = customElements.getName(this);
-    if (name) return console.warn(`${this.name} already defined as <${name}>!`);
-
-    const ce = customElements.get(tag);
-    if (Boolean(ce) && ce !== this) return console.warn(`<${tag}> already defined as ${ce.name}!`);
-
-    customElements.define(tag, this);
-  }
-
-  static {
-    const tag = new URL(import.meta.url).searchParams.get("define") || this.tag;
-    if (tag !== "false") this.define(tag);
   }
 }
 ```
