@@ -60,4 +60,6 @@ declare module "react/jsx-runtime" {
 }
 ```
 
-I haven't tested this with Preact — much less other frameworks that use JSX, like Hono. But in theory it should work if you change `react/jsx-runtime` to `preact/jsx-runtime` (or whatever the corresponding module name is) and swap out React's types for the other framework's.
+I haven't tested this with Preact or Solid — much less other frameworks that use JSX, like Hono. But in theory it should work if you change `react/jsx-runtime` to `preact/jsx-runtime` (or whatever the corresponding module name is) and swap out React's types for the other framework's.
+
+Addendum: after publishing, Hawk Ticehurst [pointed out to me](https://bsky.app/profile/hawkticehurst.com/post/3lfeish53dc25) that Justin Fagnani [figured out how to get good typings for the custom elements without resorting to the React types](https://github.com/shoelace-style/shoelace/discussions/770#discussioncomment-2852125).

@@ -125,7 +125,7 @@ class MyElement extends HTMLElement {
 
   static {
     const tag = new URL(import.meta.url).searchParams.get("define") || this.tag;
-    if (define !== "false") this.define(tag);
+    if (tag !== "false") this.define(tag);
   }
 }
 ```
