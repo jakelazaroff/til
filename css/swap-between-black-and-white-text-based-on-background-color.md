@@ -51,15 +51,15 @@ Remember, the calculation is `(49.44 - l) * infinity`, clamped within the range 
 - CSS `red` has an LCH lightness of `54.29`.
   1. `49.44` - `54.29` = `-4.85`
   2. `-4.85` \* `infinity` = `-infinity`
-  3. `-infintiy` gets clamped to `0` <span style="border-radius: 2px; padding: 0 2px; background: red; color: black">(black)</span>
+  3. `-infinity` gets clamped to `0` <span style="border-radius: 2px; padding: 0 2px; background: red; color: black">(black)</span>
 - CSS `blue` has an LCH lightness of `29.57`.
   1. `49.44` - `29.57` = `19.87`
   2. `19.87` \* `infinity` = `-infinity`
-  3. `infintiy` gets clamped to `100` <span style="border-radius: 2px; padding: 0 2px; background: blue; color: white">(white)</span>
+  3. `infinity` gets clamped to `100` <span style="border-radius: 2px; padding: 0 2px; background: blue; color: white">(white)</span>
 - CSS `white` has an LCH lightness of `100`.
   1. `49.44` - `100` = `-50.56`
   2. `-4.85` \* `infinity` = `-infinity`
-  3. `-infintiy` gets clamped to `0` <span style="border-radius: 2px; padding: 0 2px; background: white; color: black">(black)</span>
+  3. `-infinity` gets clamped to `0` <span style="border-radius: 2px; padding: 0 2px; background: white; color: black">(black)</span>
 
 Why `49.44`? Devon tested it with all RGB colors and found it had the least number of WCAG 4.5:1 contrast failures.
 
