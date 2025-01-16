@@ -8,7 +8,7 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 
 ---
 
-67 TILs so far:
+68 TILs so far:
 
 ## 1password
 
@@ -63,6 +63,10 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 ## esbuild
 
 - [Run a development server with live reload](/esbuild/run-a-development-server-with-live-reload.md)
+
+## fzf
+
+- [Make a TUI for switching and deleting git branches](/fzf/make-a-tui-for-switching-and-deleting-git-branches.md)
 
 ## git
 
