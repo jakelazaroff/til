@@ -8,7 +8,7 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 
 ---
 
-68 TILs so far:
+69 TILs so far:
 
 ## 1password
 
@@ -181,6 +181,10 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 - [tsconfig flags to prevent common errors](/typescript/tsconfig-flags-to-prevent-common-errors.md)
 - [Type concrete subclasses of an abstract class](/typescript/type-concrete-subclasses-of-an-abstract-class.md)
 - [Types and variables can share names](/typescript/types-and-variables-can-share-names.md)
+
+## valibot
+
+- [Parse a `Date` or `string` into a `Date`](/valibot/parse-a-date-or-string-into-a-date.md)
 
 ## volta
 
