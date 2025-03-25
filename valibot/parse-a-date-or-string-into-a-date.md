@@ -1,6 +1,6 @@
 # Parse a `Date` or `string` into a `Date`
 
-One common pattern with TypeScript projects is using a validation library like [Valibot](https://valibot.dev/) to validate incoming data at points of ingress to your application. (Intentionally or unintentionally, this is "parse, don't validate" pattern, coined by Alexis King advocates in her [excellent blog post of the same name](https://lexi-lambda.github.io/about.html).)
+One common pattern with TypeScript projects is using a validation library like [Valibot](https://valibot.dev/) to validate incoming data at points of ingress to your application. (Intentionally or unintentionally, this is the "parse, don't validate" pattern, coined by Alexis King in her [excellent blog post of the same name](https://lexi-lambda.github.io/about.html).)
 
 The pattern is a little trickier when writing code that spans network boundaries. 
 
