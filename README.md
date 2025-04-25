@@ -70,7 +70,7 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 
 ## git
 
-- [Ignore all `.DS_Store` files](/git/add-a-global-gitignore.md)
+- [Add a global `.gitignore`](/git/add-a-global-gitignore.md)
 - [List all files tracked by git](/git/list-all-files-tracked-by-git.md)
 - [Run a command if there are unstaged changes](/git/run-a-command-if-there-are-unstaged-changes.md)
 - [Update all submodules to latest commit on origin](/git/update-all-submodules-to-latest-commit-on-origin.md)
