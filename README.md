@@ -8,7 +8,7 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 
 ---
 
-69 TILs so far:
+70 TILs so far:
 
 ## 1password
 
@@ -70,7 +70,7 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 
 ## git
 
-- [Ignore all `.DS_Store` files](/git/ignore-all-ds-store-files.md)
+- [Ignore all `.DS_Store` files](/git/add-a-global-gitignore.md)
 - [List all files tracked by git](/git/list-all-files-tracked-by-git.md)
 - [Run a command if there are unstaged changes](/git/run-a-command-if-there-are-unstaged-changes.md)
 - [Update all submodules to latest commit on origin](/git/update-all-submodules-to-latest-commit-on-origin.md)
@@ -189,3 +189,7 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 ## volta
 
 - [Install Volta with Homebrew](/volta/install-volta-with-homebrew.md)
+
+## windows
+
+- [Create a file without an extension](/windows/create-a-file-without-an-extension.md)
