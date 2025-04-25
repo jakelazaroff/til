@@ -1,4 +1,4 @@
-# Ignore all `.DS_Store` files
+# Add a global `.gitignore`
 
 If you use git on a Mac, chances are you've accidentally committed a `.DS_Store` to a repo. I used to reflexively add `.DS_Store` to all my `.gitignore` files to avoid ever repeating that mistake.
 
