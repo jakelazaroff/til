@@ -70,8 +70,8 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 
 ## git
 
+- [Add a Git hook on Windows](/git/add-a-git-hook-on-windows.md)
 - [Add a global `.gitignore`](/git/add-a-global-gitignore.md)
-- [Add Git hook on Windows](/git/add-git-hook-on-windows.md)
 - [List all files tracked by git](/git/list-all-files-tracked-by-git.md)
 - [Run a command if there are unstaged changes](/git/run-a-command-if-there-are-unstaged-changes.md)
 - [Update all submodules to latest commit on origin](/git/update-all-submodules-to-latest-commit-on-origin.md)
