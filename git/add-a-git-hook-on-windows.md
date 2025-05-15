@@ -1,4 +1,4 @@
-# Add Git hook on Windows
+# Add a Git hook on Windows
 
 [Git Hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) are scripts that Git runs for you when certain actions occur.
 
