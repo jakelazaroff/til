@@ -8,7 +8,7 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 
 ---
 
-71 TILs so far:
+72 TILs so far:
 
 ## 1password
 
@@ -34,6 +34,7 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 ## caddy
 
 - [Run a local static file server over HTTPS](/caddy/run-a-local-static-file-server-over-https.md)
+- [Run an HTTPS reverse proxy for local development](/caddy/run-an-https-reverse-proxy-for-local-development.md)
 - [Serve Markdown files as HTML](/caddy/serve-markdown-files-as-html.md)
 
 ## css
