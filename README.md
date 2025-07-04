@@ -8,7 +8,7 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 
 ---
 
-72 TILs so far:
+73 TILs so far:
 
 ## 1password
 
@@ -86,6 +86,10 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 ## gltf
 
 - [Extract data from a mesh primitive](/gltf/extract-data-from-a-mesh-primitive.md)
+
+## go
+
+- [Represent a sum type](/go/represent-a-sum-type.md)
 
 ## html
 
