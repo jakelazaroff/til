@@ -8,7 +8,7 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 
 ---
 
-73 TILs so far:
+74 TILs so far:
 
 ## 1password
 
@@ -164,6 +164,10 @@ Subscribe via [RSS](https://til.jakelazaroff.com/rss.xml)!
 ## svg
 
 - [Create an SVG sprite sheet](/svg/create-an-svg-sprite-sheet.md)
+
+## swiftui
+
+- [Change the navigation bar font](/swiftui/change-the-navigation-bar-font.md)
 
 ## systemd
 
